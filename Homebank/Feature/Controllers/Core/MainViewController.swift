@@ -8,24 +8,12 @@
 import UIKit
 import SnapKit
 
-final class MainViewController: UIViewController {
-
-    // MARK: - UI
-    
-    private lazy var avatarIcon: UIImageView = {
-        let avatarIcon = UIImageView()
-        avatarIcon.image = AppImage.avatar.uiImage
-        return avatarIcon
-    }()
-    
+final class MainViewController: UIViewController, UISearchBarDelegate {
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = AppColor.greyBackground.uiColor
+        view.backgroundColor = AppColor.grey01.uiColor
     }
-    
-    
 }
-
