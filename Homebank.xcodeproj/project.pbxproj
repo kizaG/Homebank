@@ -19,6 +19,7 @@
 		C258B4112BEDF6DF00AE0B64 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B4102BEDF6DF00AE0B64 /* MenuViewController.swift */; };
 		C258B4142BEDF92F00AE0B64 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C258B4132BEDF92F00AE0B64 /* SnapKit */; };
 		C258B4162BEDFAEC00AE0B64 /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B4152BEDFAEC00AE0B64 /* AppImage.swift */; };
+		C258B4222BF0D93E00AE0B64 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B4212BF0D93E00AE0B64 /* NavigationBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		C258B40E2BEDF64700AE0B64 /* AccountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsViewController.swift; sourceTree = "<group>"; };
 		C258B4102BEDF6DF00AE0B64 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		C258B4152BEDFAEC00AE0B64 /* AppImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImage.swift; sourceTree = "<group>"; };
+		C258B4212BF0D93E00AE0B64 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				C258B4092BEDE59400AE0B64 /* QRViewController.swift */,
 				C258B40E2BEDF64700AE0B64 /* AccountsViewController.swift */,
 				C258B4102BEDF6DF00AE0B64 /* MenuViewController.swift */,
+				C258B4212BF0D93E00AE0B64 /* NavigationBarView.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				C258B40A2BEDE59400AE0B64 /* QRViewController.swift in Sources */,
 				C258B4062BEDDF9300AE0B64 /* TabBarController.swift in Sources */,
 				C2198DD82BEDDA700074AE6F /* AppDelegate.swift in Sources */,
+				C258B4222BF0D93E00AE0B64 /* NavigationBarView.swift in Sources */,
 				C2198DDA2BEDDA700074AE6F /* SceneDelegate.swift in Sources */,
 				C258B40F2BEDF64700AE0B64 /* AccountsViewController.swift in Sources */,
 				C258B40D2BEDEB3B00AE0B64 /* AppColor.swift in Sources */,

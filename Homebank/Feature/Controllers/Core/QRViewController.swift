@@ -12,5 +12,6 @@ final class QRViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = AppColor.grey01.uiColor
+        title = "Halyk QR"
     }
 }
