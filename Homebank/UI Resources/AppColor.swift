@@ -22,4 +22,5 @@ enum AppColor: String, AppColorProtocol {
     
     case grey01 = "EDEEF0"
     case grey02 = "646464"
+    case grey03 = "E3E4E8"
 }
