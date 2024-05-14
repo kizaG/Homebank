@@ -71,9 +71,6 @@
 				C258B4182BEDFC1F00AE0B64 /* App Resources */,
 				C258B4172BEDFC0B00AE0B64 /* App */,
 				C258B40B2BEDEB2600AE0B64 /* UI Resources */,
-				C258B4252BF238EA00AE0B64 /* ViewModels */,
-				C258B4262BF238F900AE0B64 /* Views */,
-				C258B4272BF2390100AE0B64 /* Models */,
 				C258B4282BF2390600AE0B64 /* Controllers */,
 				C2198DE22BEDDA710074AE6F /* LaunchScreen.storyboard */,
 				C2198DE52BEDDA710074AE6F /* Info.plist */,
@@ -117,27 +114,6 @@
 				C2198DE02BEDDA710074AE6F /* Assets.xcassets */,
 			);
 			path = "App Resources";
-			sourceTree = "<group>";
-		};
-		C258B4252BF238EA00AE0B64 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		C258B4262BF238F900AE0B64 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		C258B4272BF2390100AE0B64 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		C258B4282BF2390600AE0B64 /* Controllers */ = {
