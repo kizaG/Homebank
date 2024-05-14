@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class MainViewController: UIViewController, UISearchBarDelegate {
+final class MainViewController: UIViewController {
     
     // MARK: - UI
     
@@ -72,6 +72,20 @@ final class MainViewController: UIViewController, UISearchBarDelegate {
         return button
     }()
     
+    let searchController = UISearchController()
+    
+    private lazy var collectionView: UICollectionView = {
+        let collectionViewLayout = UICollectionViewLayout()
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
+        collectionView.backgroundColor = AppColor.grey01.uiColor
+        collectionView.bounces = false
+        collectionView.register(InfoCollectionViewCell.self,
+                                forCellWithReuseIdentifier: "InfosCollectionViewCell")
+        collectionView.register(MainButtonCollectionViewCell.self,
+                                forCellWithReuseIdentifier: "MainButtonsCollectionViewCell")
+        return collectionView
+    }()
+    
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.searchBarStyle = .minimal
@@ -87,27 +101,18 @@ final class MainViewController: UIViewController, UISearchBarDelegate {
         return searchBar
     }()
     
-    let searchController = UISearchController()
-    
-    private lazy var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        layout.scrollDirection = .horizontal
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(UICollectionViewCell.self,
-                                forCellWithReuseIdentifier: "cell")
-        return collectionView
-    }()
+    private let sections = MockData.shared.pageData
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = AppColor.grey01.uiColor
-        navigationItem.searchController = searchController
         setupViews()
         setupConstraints()
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.collectionViewLayout = createLayout()
     }
     
     // MARK: - Action
@@ -125,12 +130,44 @@ final class MainViewController: UIViewController, UISearchBarDelegate {
 
 // MARK: - Private
 
-private extension MainViewController {
+extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        sections.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        sections[section].count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        switch sections[indexPath.section] {
+            
+        case .infos(let info):
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InfosCollectionViewCell", for: indexPath) as? InfoCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            cell.configureCell(imageName: info[indexPath.row].image)
+            return cell
+            
+        case .mainButtons(let mainButton):
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainButtonsCollectionViewCell", for: indexPath) as? MainButtonCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            cell.configureCell(imageName: mainButton[indexPath.row].image,
+                               title: mainButton[indexPath.row].title,
+                               extraText: mainButton[indexPath.row].extraText)
+            return cell
+        }
+    }
     
     // MARK: - Setup Views
     
     func setupViews() {
-        [avatarView, buttonsView, collectionView].forEach {
+        [searchBar, collectionView].forEach {
+            view.addSubview($0)
+        }
+        [avatarView, buttonsView].forEach {
             navigationController?.navigationBar.addSubview($0)
         }
         [avatarIcon, greetingLabel, dateLabel, bonusLabel].forEach {
@@ -189,28 +226,74 @@ private extension MainViewController {
             make.size.equalTo(28)
         }
         
-        collectionView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(100)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
-            make.height.equalTo(100)
-        }
-    }
-}
-
-extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource,
-                              UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: "cell",
-            for: indexPath) as? UICollectionViewCell else {
-            return UICollectionViewCell()
+        searchBar.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(94)
+            make.leading.equalToSuperview().offset(12)
+            make.trailing.equalToSuperview().offset(-12)
+            make.height.equalTo(44)
         }
         
-        return cell
+        collectionView.snp.makeConstraints { make in
+            make.top.equalTo(searchBar.snp.bottom).offset(12)
+            make.leading.equalToSuperview().offset(20)
+            make.bottom.trailing.equalToSuperview()
+        }
+    }
+    
+    // MARK: - Create Layout
+    
+    private func createLayout() -> UICollectionViewCompositionalLayout {
+        UICollectionViewCompositionalLayout { [weak self] sectionIndex, _ in
+            guard let self = self else {
+                return nil
+            }
+            let section = self.sections[sectionIndex]
+            switch section {
+            case .infos(_):
+                return self.createInfoSection()
+            case .mainButtons(_):
+                return self.createMainButtonSection()
+            }
+        }
+    }
+    
+    private func createLayoutSection(group: NSCollectionLayoutGroup,
+                                     behavior: UICollectionLayoutSectionOrthogonalScrollingBehavior,
+                                     interGroupSpacing: CGFloat) -> NSCollectionLayoutSection {
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = behavior
+        section.interGroupSpacing = interGroupSpacing
+        return section
+    }
+    
+    private func createInfoSection() -> NSCollectionLayoutSection {
+        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1),
+                                                            heightDimension: .fractionalHeight(1)))
+        
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.45),
+                                                                         heightDimension: .fractionalHeight(0.13)),
+                                                       subitems: [item])
+        
+        let section = createLayoutSection(group: group,
+                                          behavior: .groupPaging,
+                                          interGroupSpacing: 10)
+        section.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 20)
+        return section
+    }
+    
+    private func createMainButtonSection() -> NSCollectionLayoutSection {
+        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.2),
+                                                            heightDimension: .fractionalHeight(0.5)))
+        
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1),
+                                                                         heightDimension: .fractionalHeight(0.1)),
+                                                       subitems: [item])
+        group.interItemSpacing = .flexible(1)
+        
+        let section = createLayoutSection(group: group,
+                                          behavior: .none,
+                                          interGroupSpacing: 0)
+        section.contentInsets = .init(top: 40, leading: 0, bottom: 50, trailing: 20)
+        return section
     }
 }
