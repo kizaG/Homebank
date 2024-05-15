@@ -10,6 +10,8 @@ import SnapKit
 
 class MainButtonCollectionViewCell: UICollectionViewCell {
     
+    static let identifier = "MainButtonCollectionViewCell"
+    
     // MARK: - UI
     
     private lazy var buttonView: UIView = {

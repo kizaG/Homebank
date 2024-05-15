@@ -10,6 +10,8 @@ import SnapKit
 
 class ExtraButtonCollectionViewCell: UICollectionViewCell {
     
+    static let identifier = "ExtraButtonCollectionViewCell"
+    
     // MARK: - UI
     
     private lazy var buttonView: UIView = {
@@ -51,12 +53,17 @@ class ExtraButtonCollectionViewCell: UICollectionViewCell {
 }
 
 extension ExtraButtonCollectionViewCell {
+    
+    // MARK: - Setup Views
+    
     func setupViews() {
         addSubview(buttonView)
         [buttonImageView, buttonTitle].forEach {
             buttonView.addSubview($0)
         }
     }
+    
+    // MARK: - Setup Constraints
     
     func setupConstraints() {
         buttonView.snp.makeConstraints { make in
@@ -75,6 +82,8 @@ extension ExtraButtonCollectionViewCell {
             make.trailing.equalToSuperview()
         }
     }
+    
+    // MARK: - Configure Cell
     
     func configureCell(imageName: String, title: String, backgroundColor: String) {
         buttonImageView.image = UIImage(named: imageName)

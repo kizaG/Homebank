@@ -26,6 +26,8 @@
 		C258B4362BF3BECB00AE0B64 /* MainButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B4352BF3BECB00AE0B64 /* MainButtonCollectionViewCell.swift */; };
 		C258B4382BF3BED800AE0B64 /* PosterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B4372BF3BED800AE0B64 /* PosterCollectionViewCell.swift */; };
 		C258B43A2BF3BEEE00AE0B64 /* ExtraButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B4392BF3BEEE00AE0B64 /* ExtraButtonCollectionViewCell.swift */; };
+		C258B43C2BF4B5FA00AE0B64 /* BackgroundDecorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B43B2BF4B5FA00AE0B64 /* BackgroundDecorationView.swift */; };
+		C258B43F2BF4B9FE00AE0B64 /* PosterFooterReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B43E2BF4B9FE00AE0B64 /* PosterFooterReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +51,8 @@
 		C258B4352BF3BECB00AE0B64 /* MainButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		C258B4372BF3BED800AE0B64 /* PosterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCollectionViewCell.swift; sourceTree = "<group>"; };
 		C258B4392BF3BEEE00AE0B64 /* ExtraButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraButtonCollectionViewCell.swift; sourceTree = "<group>"; };
+		C258B43B2BF4B5FA00AE0B64 /* BackgroundDecorationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundDecorationView.swift; sourceTree = "<group>"; };
+		C258B43E2BF4B9FE00AE0B64 /* PosterFooterReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterFooterReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,7 @@
 		C258B4292BF3B47900AE0B64 /* MainViewCompositionalLayout */ = {
 			isa = PBXGroup;
 			children = (
+				C258B43D2BF4B9DC00AE0B64 /* Views */,
 				C258B4322BF3BD4C00AE0B64 /* Cells */,
 				C258B42A2BF3B4A200AE0B64 /* ListItem.swift */,
 				C258B42C2BF3B4FA00AE0B64 /* ListSection.swift */,
@@ -159,6 +164,15 @@
 				C258B4392BF3BEEE00AE0B64 /* ExtraButtonCollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		C258B43D2BF4B9DC00AE0B64 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C258B43B2BF4B5FA00AE0B64 /* BackgroundDecorationView.swift */,
+				C258B43E2BF4B9FE00AE0B64 /* PosterFooterReusableView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,7 +260,9 @@
 				C2198DDA2BEDDA700074AE6F /* SceneDelegate.swift in Sources */,
 				C258B40F2BEDF64700AE0B64 /* AccountsViewController.swift in Sources */,
 				C258B40D2BEDEB3B00AE0B64 /* AppColor.swift in Sources */,
+				C258B43C2BF4B5FA00AE0B64 /* BackgroundDecorationView.swift in Sources */,
 				C258B4382BF3BED800AE0B64 /* PosterCollectionViewCell.swift in Sources */,
+				C258B43F2BF4B9FE00AE0B64 /* PosterFooterReusableView.swift in Sources */,
 				C258B4112BEDF6DF00AE0B64 /* MenuViewController.swift in Sources */,
 				C258B42D2BF3B4FA00AE0B64 /* ListSection.swift in Sources */,
 				C258B4162BEDFAEC00AE0B64 /* AppImage.swift in Sources */,

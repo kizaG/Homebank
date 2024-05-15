@@ -10,9 +10,11 @@ import SnapKit
 
 class PosterCollectionViewCell: UICollectionViewCell {
     
+    static let identifier = "PosterCollectionViewCell"
+    
     // MARK: - UI
     
-    private let infoImageView: UIImageView = {
+    private lazy var infoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         return imageView

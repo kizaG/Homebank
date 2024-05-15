@@ -10,9 +10,11 @@ import SnapKit
 
 class InfoCollectionViewCell: UICollectionViewCell {
     
+    static let identifier = "InfoCollectionViewCell"
+    
     // MARK: - UI
     
-    private let infoImageView: UIImageView = {
+    private lazy var infoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleToFill
         return imageView

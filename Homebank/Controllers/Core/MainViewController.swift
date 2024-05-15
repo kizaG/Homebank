@@ -8,6 +8,11 @@
 import UIKit
 import SnapKit
 
+struct ElementKind {
+    static let background = "background-element-kind"
+    static let sectionFooter = "section-footer-element-kind"
+}
+
 final class MainViewController: UIViewController {
     
     // MARK: - UI
@@ -80,13 +85,15 @@ final class MainViewController: UIViewController {
         collectionView.backgroundColor = AppColor.grey01.uiColor
         collectionView.bounces = false
         collectionView.register(InfoCollectionViewCell.self,
-                                forCellWithReuseIdentifier: "InfosCollectionViewCell")
+                                forCellWithReuseIdentifier: InfoCollectionViewCell.identifier)
         collectionView.register(MainButtonCollectionViewCell.self,
-                                forCellWithReuseIdentifier: "MainButtonsCollectionViewCell")
+                                forCellWithReuseIdentifier: MainButtonCollectionViewCell.identifier)
         collectionView.register(PosterCollectionViewCell.self,
-                                forCellWithReuseIdentifier: "PostersCollectionViewCell")
+                                forCellWithReuseIdentifier: PosterCollectionViewCell.identifier)
+        collectionView.register(PosterFooterReusableView.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: PosterFooterReusableView.identifier)
         collectionView.register(ExtraButtonCollectionViewCell.self,
-                                forCellWithReuseIdentifier: "ExtraButtonsCollectionViewCell")
+                                forCellWithReuseIdentifier: ExtraButtonCollectionViewCell.identifier)
         return collectionView
     }()
     
@@ -133,56 +140,7 @@ final class MainViewController: UIViewController {
     }
 }
 
-extension MainViewController: UICollectionViewDelegate,
-                                UICollectionViewDataSource,
-                                UICollectionViewDelegateFlowLayout {
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        sections.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        sections[section].count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        switch sections[indexPath.section] {
-            
-        case .infos(let info):
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InfosCollectionViewCell", for: indexPath) as? InfoCollectionViewCell else {
-                return UICollectionViewCell()
-            }
-            cell.configureCell(imageName: info[indexPath.row].image)
-            return cell
-            
-        case .mainButtons(let mainButton):
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainButtonsCollectionViewCell", for: indexPath) as? MainButtonCollectionViewCell else {
-                return UICollectionViewCell()
-            }
-            cell.configureCell(imageName: mainButton[indexPath.row].image,
-                               title: mainButton[indexPath.row].title,
-                               extraText: mainButton[indexPath.row].extraText)
-            return cell
-            
-        case .posters(let poster):
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostersCollectionViewCell", for: indexPath) as? PosterCollectionViewCell else {
-                return UICollectionViewCell()
-            }
-            cell.configureCell(imageName: poster[indexPath.row].image)
-            return cell
-            
-        case .extraButtons(let extraButton):
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ExtraButtonsCollectionViewCell", for: indexPath) as? ExtraButtonCollectionViewCell else {
-                return UICollectionViewCell()
-            }
-            cell.configureCell(imageName: extraButton[indexPath.row].image,
-                               title: extraButton[indexPath.row].title,
-                               backgroundColor: extraButton[indexPath.row].backgroundColor)
-            return cell
-            
-            
-        }
-    }
+extension MainViewController {
     
     // MARK: - Setup Views
     
@@ -258,7 +216,7 @@ extension MainViewController: UICollectionViewDelegate,
         
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(searchBar.snp.bottom).offset(12)
-            make.bottom.equalToSuperview().offset(-8)
+            make.bottom.equalToSuperview().offset(-5)
             make.leading.trailing.equalToSuperview()
         }
     }
@@ -266,7 +224,7 @@ extension MainViewController: UICollectionViewDelegate,
     // MARK: - Create Layout
     
     private func createLayout() -> UICollectionViewCompositionalLayout {
-        UICollectionViewCompositionalLayout { [weak self] sectionIndex, _ in
+        let layout = UICollectionViewCompositionalLayout { [weak self] sectionIndex, _ in
             guard let self = self else {
                 return nil
             }
@@ -282,6 +240,11 @@ extension MainViewController: UICollectionViewDelegate,
                 return self.createExtraButtonSection()
             }
         }
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        config.interSectionSpacing = 20
+        layout.configuration = config
+        layout.register(BackgroundDecorationView.self, forDecorationViewOfKind: ElementKind.background)
+        return layout
     }
     
     private func createLayoutSection(group: NSCollectionLayoutGroup,
@@ -332,10 +295,19 @@ extension MainViewController: UICollectionViewDelegate,
                                                                          heightDimension: .fractionalHeight(0.13)),
                                                        subitems: [item])
         
+        let footerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .estimated(20))
+        let footer = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: footerSize,
+            elementKind: UICollectionView.elementKindSectionFooter,
+            alignment: .bottomLeading)
+        
         let section = createLayoutSection(group: group,
                                           behavior: .groupPaging,
                                           interGroupSpacing: 10)
-        section.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 0)
+        section.contentInsets = .init(top: -20, leading: 0, bottom: 0, trailing: 0)
+        section.boundarySupplementaryItems = [footer]
         return section
     }
     
@@ -349,12 +321,84 @@ extension MainViewController: UICollectionViewDelegate,
         group.interItemSpacing = .flexible(1)
         
         let sectionBackgroundDecoration = NSCollectionLayoutDecorationItem.background(
-            elementKind: "white")
+            elementKind: ElementKind.background)
         let section = createLayoutSection(group: group,
                                           behavior: .none,
-                                          interGroupSpacing: 20)
-        section.contentInsets = .init(top: 40, leading: 20, bottom: 0, trailing: 20)
+                                          interGroupSpacing: 0)
+        section.contentInsets = .init(top: 0, leading: 20, bottom: 0, trailing: 0)
         section.decorationItems = [sectionBackgroundDecoration]
         return section
+    }
+}
+
+extension MainViewController: UICollectionViewDelegate,
+                              UICollectionViewDataSource,
+                              UICollectionViewDelegateFlowLayout {
+
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        sections.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        sections[section].count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        switch sections[indexPath.section] {
+            
+        case .infos(let info):
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InfoCollectionViewCell.identifier, for: indexPath) as? InfoCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            cell.configureCell(imageName: info[indexPath.row].image)
+            return cell
+            
+        case .mainButtons(let mainButton):
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainButtonCollectionViewCell.identifier, for: indexPath) as? MainButtonCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            cell.configureCell(imageName: mainButton[indexPath.row].image,
+                               title: mainButton[indexPath.row].title,
+                               extraText: mainButton[indexPath.row].extraText)
+            return cell
+            
+        case .posters(let poster):
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PosterCollectionViewCell.identifier, for: indexPath) as? PosterCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            cell.configureCell(imageName: poster[indexPath.row].image)
+            return cell
+            
+        case .extraButtons(let extraButton):
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ExtraButtonCollectionViewCell.identifier, for: indexPath) as? ExtraButtonCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            cell.configureCell(imageName: extraButton[indexPath.row].image,
+                               title: extraButton[indexPath.row].title,
+                               backgroundColor: extraButton[indexPath.row].backgroundColor)
+            return cell
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionFooter:
+            if indexPath.section == 2 {
+                guard let footer = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: kind,
+                    withReuseIdentifier: PosterFooterReusableView.identifier,
+                    for: indexPath) as? PosterFooterReusableView
+                else { fatalError() }
+                return footer
+            }
+        default:
+            guard let footer = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: PosterFooterReusableView.identifier,
+                for: indexPath) as? PosterFooterReusableView
+            else { fatalError() }
+            return footer
+        }
+        return UICollectionReusableView()
     }
 }
