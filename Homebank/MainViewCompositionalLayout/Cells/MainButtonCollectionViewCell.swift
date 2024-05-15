@@ -14,16 +14,23 @@ class MainButtonCollectionViewCell: UICollectionViewCell {
     
     private lazy var buttonView: UIView = {
         let view = UIView()
+        view.backgroundColor = AppColor.white.uiColor
+        view.layer.cornerRadius = 12
+        view.contentMode = .scaleAspectFill
         return view
     }()
     
     private lazy var buttonImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
     private lazy var buttonTitle: UILabel = {
         let label = UILabel()
+        label.font = UIFont(name: "ArialMT", size: 12)
+        label.textColor = AppColor.grey04.uiColor
+        label.numberOfLines = 1
         return label
     }()
     
@@ -60,13 +67,14 @@ extension MainButtonCollectionViewCell {
         }
         
         buttonImageView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
-            make.height.equalTo(50)
+            make.top.equalToSuperview().offset(10)
+            make.centerX.equalTo(buttonView.snp.centerX)
+            make.size.equalTo(36)
         }
         
         buttonTitle.snp.makeConstraints { make in
-            make.top.equalTo(buttonImageView.snp.bottom).offset(2)
-            make.bottom.leading.trailing.equalToSuperview()
+            make.centerX.equalTo(buttonImageView.snp.centerX)
+            make.bottom.equalToSuperview().offset(-10)
         }
     }
     

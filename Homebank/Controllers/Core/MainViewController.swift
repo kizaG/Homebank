@@ -83,6 +83,10 @@ final class MainViewController: UIViewController {
                                 forCellWithReuseIdentifier: "InfosCollectionViewCell")
         collectionView.register(MainButtonCollectionViewCell.self,
                                 forCellWithReuseIdentifier: "MainButtonsCollectionViewCell")
+        collectionView.register(PosterCollectionViewCell.self,
+                                forCellWithReuseIdentifier: "PostersCollectionViewCell")
+        collectionView.register(ExtraButtonCollectionViewCell.self,
+                                forCellWithReuseIdentifier: "ExtraButtonsCollectionViewCell")
         return collectionView
     }()
     
@@ -107,6 +111,7 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = AppColor.grey01.uiColor
         setupViews()
         setupConstraints()
@@ -128,9 +133,9 @@ final class MainViewController: UIViewController {
     }
 }
 
-// MARK: - Private
-
-extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension MainViewController: UICollectionViewDelegate,
+                                UICollectionViewDataSource,
+                                UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         sections.count
@@ -158,6 +163,24 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                                title: mainButton[indexPath.row].title,
                                extraText: mainButton[indexPath.row].extraText)
             return cell
+            
+        case .posters(let poster):
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostersCollectionViewCell", for: indexPath) as? PosterCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            cell.configureCell(imageName: poster[indexPath.row].image)
+            return cell
+            
+        case .extraButtons(let extraButton):
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ExtraButtonsCollectionViewCell", for: indexPath) as? ExtraButtonCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            cell.configureCell(imageName: extraButton[indexPath.row].image,
+                               title: extraButton[indexPath.row].title,
+                               backgroundColor: extraButton[indexPath.row].backgroundColor)
+            return cell
+            
+            
         }
     }
     
@@ -235,8 +258,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(searchBar.snp.bottom).offset(12)
-            make.leading.equalToSuperview().offset(20)
-            make.bottom.trailing.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-8)
+            make.leading.trailing.equalToSuperview()
         }
     }
     
@@ -253,6 +276,10 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 return self.createInfoSection()
             case .mainButtons(_):
                 return self.createMainButtonSection()
+            case .posters(_):
+                return self.createPosterSection()
+            case .extraButtons(_):
+                return self.createExtraButtonSection()
             }
         }
     }
@@ -270,20 +297,20 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1),
                                                             heightDimension: .fractionalHeight(1)))
         
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.45),
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.42),
                                                                          heightDimension: .fractionalHeight(0.13)),
                                                        subitems: [item])
         
         let section = createLayoutSection(group: group,
                                           behavior: .groupPaging,
                                           interGroupSpacing: 10)
-        section.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 20)
+        section.contentInsets = .init(top: 0, leading: 20, bottom: 0, trailing: 20)
         return section
     }
     
     private func createMainButtonSection() -> NSCollectionLayoutSection {
         let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.2),
-                                                            heightDimension: .fractionalHeight(0.5)))
+                                                            heightDimension: .fractionalHeight(1)))
         
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1),
                                                                          heightDimension: .fractionalHeight(0.1)),
@@ -292,8 +319,42 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         let section = createLayoutSection(group: group,
                                           behavior: .none,
-                                          interGroupSpacing: 0)
-        section.contentInsets = .init(top: 40, leading: 0, bottom: 50, trailing: 20)
+                                          interGroupSpacing: 20)
+        section.contentInsets = .init(top: 40, leading: 20, bottom: 50, trailing: 20)
+        return section
+    }
+    
+    private func createPosterSection() -> NSCollectionLayoutSection {
+        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1),
+                                                            heightDimension: .fractionalHeight(1)))
+        
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1),
+                                                                         heightDimension: .fractionalHeight(0.13)),
+                                                       subitems: [item])
+        
+        let section = createLayoutSection(group: group,
+                                          behavior: .groupPaging,
+                                          interGroupSpacing: 10)
+        section.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 0)
+        return section
+    }
+    
+    private func createExtraButtonSection() -> NSCollectionLayoutSection {
+        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.48),
+                                                            heightDimension: .fractionalHeight(1)))
+        
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1),
+                                                                         heightDimension: .fractionalHeight(0.1)),
+                                                       subitems: [item])
+        group.interItemSpacing = .flexible(1)
+        
+        let sectionBackgroundDecoration = NSCollectionLayoutDecorationItem.background(
+            elementKind: "white")
+        let section = createLayoutSection(group: group,
+                                          behavior: .none,
+                                          interGroupSpacing: 20)
+        section.contentInsets = .init(top: 40, leading: 20, bottom: 0, trailing: 20)
+        section.decorationItems = [sectionBackgroundDecoration]
         return section
     }
 }

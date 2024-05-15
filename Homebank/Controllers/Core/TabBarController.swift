@@ -38,19 +38,19 @@ final class TabBarController: UITabBarController, UISearchBarDelegate {
         let nav4 = UINavigationController(rootViewController: menuVC)
         
         nav1.tabBarItem = UITabBarItem(title: "Main",
-                                       image: AppImage.main.uiImage,
+                                       image: AppImage.tab_main.uiImage,
                                        tag: 1)
         
         nav2.tabBarItem = UITabBarItem(title: "Halyk QR",
-                                       image: AppImage.qr.uiImage,
+                                       image: AppImage.tab_qr.uiImage,
                                        tag: 2)
         
         nav3.tabBarItem = UITabBarItem(title: "Счета",
-                                       image: AppImage.accounts.uiImage,
+                                       image: AppImage.tab_accounts.uiImage,
                                        tag: 3)
         
         nav4.tabBarItem = UITabBarItem(title: "Меню",
-                                       image: AppImage.menu.uiImage,
+                                       image: AppImage.tab_menu.uiImage,
                                        tag: 4)
         
         for nav in [nav1, nav2, nav3, nav4] {

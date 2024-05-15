@@ -32,9 +32,7 @@ class PosterCollectionViewCell: UICollectionViewCell {
     }
 }
 
-// MARK: - Private
-
-private extension PosterCollectionViewCell {
+extension PosterCollectionViewCell {
     func setupViews() {
         addSubview(infoImageView)
     }

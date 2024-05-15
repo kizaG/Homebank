@@ -11,4 +11,5 @@ struct ListItem {
     let image: String
     let title: String
     let extraText: String
+    let backgroundColor: String
 }

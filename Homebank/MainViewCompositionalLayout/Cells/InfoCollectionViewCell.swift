@@ -14,7 +14,7 @@ class InfoCollectionViewCell: UICollectionViewCell {
     
     private let infoImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleToFill
         return imageView
     }()
     

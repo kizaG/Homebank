@@ -12,10 +12,28 @@ class ExtraButtonCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI
     
-    private let infoImageView: UIImageView = {
+    private lazy var buttonView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 12
+        view.backgroundColor = AppColor.white.uiColor
+        view.contentMode = .center
+        return view
+    }()
+    
+    private lazy var buttonImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .center
+        imageView.layer.cornerRadius = 8
+        imageView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: -10, right: -10)
         return imageView
+    }()
+    
+    private lazy var buttonTitle: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "Arial-BoldMT", size: 12)
+        label.textColor = AppColor.grey04.uiColor
+        label.numberOfLines = 1
+        return label
     }()
     
     // MARK: - Lifecycle
@@ -32,20 +50,35 @@ class ExtraButtonCollectionViewCell: UICollectionViewCell {
     }
 }
 
-// MARK: - Private
-
-private extension ExtraButtonCollectionViewCell {
+extension ExtraButtonCollectionViewCell {
     func setupViews() {
-        addSubview(infoImageView)
-    }
-    
-    func setupConstraints() {
-        infoImageView.snp.makeConstraints { make in
-            make.top.bottom.leading.trailing.equalToSuperview()
+        addSubview(buttonView)
+        [buttonImageView, buttonTitle].forEach {
+            buttonView.addSubview($0)
         }
     }
     
-    func configureCell(imageName: String) {
-        infoImageView.image = UIImage(named: imageName)
+    func setupConstraints() {
+        buttonView.snp.makeConstraints { make in
+            make.top.bottom.leading.trailing.equalToSuperview()
+        }
+        
+        buttonImageView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.size.equalTo(40)
+        }
+        
+        buttonTitle.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.leading.equalTo(buttonImageView.snp.trailing).offset(10)
+            make.trailing.equalToSuperview()
+        }
+    }
+    
+    func configureCell(imageName: String, title: String, backgroundColor: String) {
+        buttonImageView.image = UIImage(named: imageName)
+        buttonTitle.text = title
+        buttonImageView.backgroundColor = UIColor(named: backgroundColor)
     }
 }
