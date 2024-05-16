@@ -28,9 +28,9 @@ final class TabBarController: UITabBarController, UISearchBarDelegate {
         let menuVC = MenuViewController()
         
         mainVC.navigationItem.largeTitleDisplayMode = .never
-        qrVC.navigationItem.largeTitleDisplayMode = .automatic
-        accountsVC.navigationItem.largeTitleDisplayMode = .automatic
-        menuVC.navigationItem.largeTitleDisplayMode = .automatic
+        qrVC.navigationItem.largeTitleDisplayMode = .never
+        accountsVC.navigationItem.largeTitleDisplayMode = .never
+        menuVC.navigationItem.largeTitleDisplayMode = .never
         
         let nav1 = UINavigationController(rootViewController: mainVC)
         let nav2 = UINavigationController(rootViewController: qrVC)

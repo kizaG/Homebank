@@ -17,7 +17,6 @@ class ExtraButtonCollectionViewCell: UICollectionViewCell {
     private lazy var buttonView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 12
-        view.backgroundColor = AppColor.white.uiColor
         view.contentMode = .center
         return view
     }()

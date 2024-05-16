@@ -59,9 +59,7 @@ final class MainViewController: UIViewController {
     
     private lazy var messageButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "ellipsis.message"), for: .normal)
-        button.contentHorizontalAlignment = .fill
-        button.contentVerticalAlignment = .fill
+        button.setImage(AppImage.navbar_message.uiImage, for: .normal)
         button.tintColor = AppColor.grey02.uiColor
         button.addTarget(self, action: #selector(messageButtonTapped), for: .touchUpInside)
         return button
@@ -69,9 +67,7 @@ final class MainViewController: UIViewController {
     
     private lazy var notificationButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: "bell"), for: .normal)
-        button.contentHorizontalAlignment = .fill
-        button.contentVerticalAlignment = .fill
+        button.setImage(AppImage.navbar_bell.uiImage, for: .normal)
         button.tintColor = AppColor.grey02.uiColor
         button.addTarget(self, action: #selector(notificationButtonTapped), for: .touchUpInside)
         return button
@@ -325,7 +321,7 @@ extension MainViewController {
         let section = createLayoutSection(group: group,
                                           behavior: .none,
                                           interGroupSpacing: 0)
-        section.contentInsets = .init(top: 0, leading: 20, bottom: 0, trailing: 0)
+        section.contentInsets = .init(top: 0, leading: 20, bottom: -8, trailing: 0)
         section.decorationItems = [sectionBackgroundDecoration]
         return section
     }

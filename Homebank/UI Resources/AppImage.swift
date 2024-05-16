@@ -51,4 +51,8 @@ enum AppImage: String, AppImageProtocol {
     case eb_rassrochka = "eb_rassrochka"
     case eb_deposit = "eb_deposit"
     case eb_club = "eb_club"
+    
+    case navbar_history = "navbar_history"
+    case navbar_bell = "navbar_bell"
+    case navbar_message = "navbar_message"
 }

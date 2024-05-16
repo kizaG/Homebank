@@ -1,15 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "#000000ff (5).pdf",
+      "filename" : "eb_club.pdf",
       "idiom" : "universal"
     }
   ],
   "info" : {
     "author" : "xcode",
     "version" : 1
-  },
-  "properties" : {
-    "template-rendering-intent" : "original"
   }
 }
