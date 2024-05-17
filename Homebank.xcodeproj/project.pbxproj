@@ -19,15 +19,20 @@
 		C258B4112BEDF6DF00AE0B64 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B4102BEDF6DF00AE0B64 /* MenuViewController.swift */; };
 		C258B4142BEDF92F00AE0B64 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C258B4132BEDF92F00AE0B64 /* SnapKit */; };
 		C258B4162BEDFAEC00AE0B64 /* AppImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B4152BEDFAEC00AE0B64 /* AppImage.swift */; };
-		C258B42B2BF3B4A200AE0B64 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B42A2BF3B4A200AE0B64 /* ListItem.swift */; };
-		C258B42D2BF3B4FA00AE0B64 /* ListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B42C2BF3B4FA00AE0B64 /* ListSection.swift */; };
-		C258B42F2BF3B67200AE0B64 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B42E2BF3B67200AE0B64 /* MockData.swift */; };
+		C258B42B2BF3B4A200AE0B64 /* MainListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B42A2BF3B4A200AE0B64 /* MainListItem.swift */; };
+		C258B42D2BF3B4FA00AE0B64 /* MainListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B42C2BF3B4FA00AE0B64 /* MainListSection.swift */; };
+		C258B42F2BF3B67200AE0B64 /* MainMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B42E2BF3B67200AE0B64 /* MainMockData.swift */; };
 		C258B4342BF3BD5800AE0B64 /* InfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B4332BF3BD5800AE0B64 /* InfoCollectionViewCell.swift */; };
 		C258B4362BF3BECB00AE0B64 /* MainButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B4352BF3BECB00AE0B64 /* MainButtonCollectionViewCell.swift */; };
 		C258B4382BF3BED800AE0B64 /* PosterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B4372BF3BED800AE0B64 /* PosterCollectionViewCell.swift */; };
 		C258B43A2BF3BEEE00AE0B64 /* ExtraButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B4392BF3BEEE00AE0B64 /* ExtraButtonCollectionViewCell.swift */; };
 		C258B43C2BF4B5FA00AE0B64 /* BackgroundDecorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B43B2BF4B5FA00AE0B64 /* BackgroundDecorationView.swift */; };
 		C258B43F2BF4B9FE00AE0B64 /* PosterFooterReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B43E2BF4B9FE00AE0B64 /* PosterFooterReusableView.swift */; };
+		C258B4462BF7526D00AE0B64 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B4452BF7526D00AE0B64 /* CardCollectionViewCell.swift */; };
+		C258B4482BF752FC00AE0B64 /* ButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B4472BF752FC00AE0B64 /* ButtonCollectionViewCell.swift */; };
+		C258B44A2BF7541E00AE0B64 /* AccountsMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B4492BF7541E00AE0B64 /* AccountsMockData.swift */; };
+		C258B44C2BF7542B00AE0B64 /* AccountsListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B44B2BF7542B00AE0B64 /* AccountsListItem.swift */; };
+		C258B44E2BF7543700AE0B64 /* AccountsListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B44D2BF7543700AE0B64 /* AccountsListSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,15 +49,20 @@
 		C258B40E2BEDF64700AE0B64 /* AccountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsViewController.swift; sourceTree = "<group>"; };
 		C258B4102BEDF6DF00AE0B64 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		C258B4152BEDFAEC00AE0B64 /* AppImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImage.swift; sourceTree = "<group>"; };
-		C258B42A2BF3B4A200AE0B64 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
-		C258B42C2BF3B4FA00AE0B64 /* ListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSection.swift; sourceTree = "<group>"; };
-		C258B42E2BF3B67200AE0B64 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		C258B42A2BF3B4A200AE0B64 /* MainListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListItem.swift; sourceTree = "<group>"; };
+		C258B42C2BF3B4FA00AE0B64 /* MainListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListSection.swift; sourceTree = "<group>"; };
+		C258B42E2BF3B67200AE0B64 /* MainMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMockData.swift; sourceTree = "<group>"; };
 		C258B4332BF3BD5800AE0B64 /* InfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		C258B4352BF3BECB00AE0B64 /* MainButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		C258B4372BF3BED800AE0B64 /* PosterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterCollectionViewCell.swift; sourceTree = "<group>"; };
 		C258B4392BF3BEEE00AE0B64 /* ExtraButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		C258B43B2BF4B5FA00AE0B64 /* BackgroundDecorationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundDecorationView.swift; sourceTree = "<group>"; };
 		C258B43E2BF4B9FE00AE0B64 /* PosterFooterReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterFooterReusableView.swift; sourceTree = "<group>"; };
+		C258B4452BF7526D00AE0B64 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		C258B4472BF752FC00AE0B64 /* ButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewCell.swift; sourceTree = "<group>"; };
+		C258B4492BF7541E00AE0B64 /* AccountsMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsMockData.swift; sourceTree = "<group>"; };
+		C258B44B2BF7542B00AE0B64 /* AccountsListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsListItem.swift; sourceTree = "<group>"; };
+		C258B44D2BF7543700AE0B64 /* AccountsListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsListSection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +96,7 @@
 		C2198DD62BEDDA700074AE6F /* Homebank */ = {
 			isa = PBXGroup;
 			children = (
+				C258B4402BF7510200AE0B64 /* AccountsViewControllerCompositionalLayout */,
 				C258B4292BF3B47900AE0B64 /* MainViewCompositionalLayout */,
 				C258B4182BEDFC1F00AE0B64 /* App Resources */,
 				C258B4172BEDFC0B00AE0B64 /* App */,
@@ -148,9 +159,9 @@
 			children = (
 				C258B43D2BF4B9DC00AE0B64 /* Views */,
 				C258B4322BF3BD4C00AE0B64 /* Cells */,
-				C258B42A2BF3B4A200AE0B64 /* ListItem.swift */,
-				C258B42C2BF3B4FA00AE0B64 /* ListSection.swift */,
-				C258B42E2BF3B67200AE0B64 /* MockData.swift */,
+				C258B42A2BF3B4A200AE0B64 /* MainListItem.swift */,
+				C258B42C2BF3B4FA00AE0B64 /* MainListSection.swift */,
+				C258B42E2BF3B67200AE0B64 /* MainMockData.swift */,
 			);
 			path = MainViewCompositionalLayout;
 			sourceTree = "<group>";
@@ -173,6 +184,34 @@
 				C258B43E2BF4B9FE00AE0B64 /* PosterFooterReusableView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		C258B4402BF7510200AE0B64 /* AccountsViewControllerCompositionalLayout */ = {
+			isa = PBXGroup;
+			children = (
+				C258B4412BF751BF00AE0B64 /* Views */,
+				C258B4422BF751C400AE0B64 /* Cells */,
+				C258B44B2BF7542B00AE0B64 /* AccountsListItem.swift */,
+				C258B44D2BF7543700AE0B64 /* AccountsListSection.swift */,
+				C258B4492BF7541E00AE0B64 /* AccountsMockData.swift */,
+			);
+			path = AccountsViewControllerCompositionalLayout;
+			sourceTree = "<group>";
+		};
+		C258B4412BF751BF00AE0B64 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C258B4422BF751C400AE0B64 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C258B4452BF7526D00AE0B64 /* CardCollectionViewCell.swift */,
+				C258B4472BF752FC00AE0B64 /* ButtonCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,20 +290,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C258B42B2BF3B4A200AE0B64 /* ListItem.swift in Sources */,
-				C258B42F2BF3B67200AE0B64 /* MockData.swift in Sources */,
+				C258B42B2BF3B4A200AE0B64 /* MainListItem.swift in Sources */,
+				C258B42F2BF3B67200AE0B64 /* MainMockData.swift in Sources */,
 				C2198DDC2BEDDA700074AE6F /* MainViewController.swift in Sources */,
 				C258B40A2BEDE59400AE0B64 /* QRViewController.swift in Sources */,
+				C258B4482BF752FC00AE0B64 /* ButtonCollectionViewCell.swift in Sources */,
+				C258B44E2BF7543700AE0B64 /* AccountsListSection.swift in Sources */,
 				C258B4062BEDDF9300AE0B64 /* TabBarController.swift in Sources */,
 				C2198DD82BEDDA700074AE6F /* AppDelegate.swift in Sources */,
+				C258B4462BF7526D00AE0B64 /* CardCollectionViewCell.swift in Sources */,
 				C2198DDA2BEDDA700074AE6F /* SceneDelegate.swift in Sources */,
 				C258B40F2BEDF64700AE0B64 /* AccountsViewController.swift in Sources */,
 				C258B40D2BEDEB3B00AE0B64 /* AppColor.swift in Sources */,
 				C258B43C2BF4B5FA00AE0B64 /* BackgroundDecorationView.swift in Sources */,
 				C258B4382BF3BED800AE0B64 /* PosterCollectionViewCell.swift in Sources */,
+				C258B44A2BF7541E00AE0B64 /* AccountsMockData.swift in Sources */,
 				C258B43F2BF4B9FE00AE0B64 /* PosterFooterReusableView.swift in Sources */,
 				C258B4112BEDF6DF00AE0B64 /* MenuViewController.swift in Sources */,
-				C258B42D2BF3B4FA00AE0B64 /* ListSection.swift in Sources */,
+				C258B44C2BF7542B00AE0B64 /* AccountsListItem.swift in Sources */,
+				C258B42D2BF3B4FA00AE0B64 /* MainListSection.swift in Sources */,
 				C258B4162BEDFAEC00AE0B64 /* AppImage.swift in Sources */,
 				C258B43A2BF3BEEE00AE0B64 /* ExtraButtonCollectionViewCell.swift in Sources */,
 				C258B4362BF3BECB00AE0B64 /* MainButtonCollectionViewCell.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  ListSection.swift
+//  MainListSection.swift
 //  Homebank
 //
 //  Created by Gazinho Dos Santos on 14.05.2024.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-enum ListSection {
-    case infos([ListItem])
-    case mainButtons([ListItem])
-    case posters([ListItem])
-    case extraButtons([ListItem])
+enum MainListSection {
+    case infos([MainListItem])
+    case mainButtons([MainListItem])
+    case posters([MainListItem])
+    case extraButtons([MainListItem])
     
-    var items: [ListItem] {
+    var items: [MainListItem] {
         switch self {
         case .infos(let items),
                 .mainButtons(let items),

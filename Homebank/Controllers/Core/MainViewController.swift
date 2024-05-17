@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  Homebank
 //
 //  Created by Gazinho Dos Santos on 10.05.2024.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-struct ElementKind {
+struct MainElementKind {
     static let background = "background-element-kind"
     static let sectionFooter = "section-footer-element-kind"
 }
@@ -108,7 +108,7 @@ final class MainViewController: UIViewController {
         return searchBar
     }()
     
-    private let sections = MockData.shared.pageData
+    private let sections = MainMockData.shared.pageData
     
     // MARK: - Lifecycle
     
@@ -141,6 +141,7 @@ extension MainViewController {
     // MARK: - Setup Views
     
     func setupViews() {
+        
         [searchBar, collectionView].forEach {
             view.addSubview($0)
         }
@@ -219,7 +220,7 @@ extension MainViewController {
     
     // MARK: - Create Layout
     
-    private func createLayout() -> UICollectionViewCompositionalLayout {
+    func createLayout() -> UICollectionViewCompositionalLayout {
         let layout = UICollectionViewCompositionalLayout { [weak self] sectionIndex, _ in
             guard let self = self else {
                 return nil
@@ -239,7 +240,7 @@ extension MainViewController {
         let config = UICollectionViewCompositionalLayoutConfiguration()
         config.interSectionSpacing = 20
         layout.configuration = config
-        layout.register(BackgroundDecorationView.self, forDecorationViewOfKind: ElementKind.background)
+        layout.register(BackgroundDecorationView.self, forDecorationViewOfKind: MainElementKind.background)
         return layout
     }
     
@@ -317,7 +318,7 @@ extension MainViewController {
         group.interItemSpacing = .flexible(1)
         
         let sectionBackgroundDecoration = NSCollectionLayoutDecorationItem.background(
-            elementKind: ElementKind.background)
+            elementKind: MainElementKind.background)
         let section = createLayoutSection(group: group,
                                           behavior: .none,
                                           interGroupSpacing: 0)

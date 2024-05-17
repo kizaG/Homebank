@@ -55,4 +55,16 @@ enum AppImage: String, AppImageProtocol {
     case navbar_history = "navbar_history"
     case navbar_bell = "navbar_bell"
     case navbar_message = "navbar_message"
+    
+    case accounts_add_card = "accounts_add_card"
+    case accounts_apple
+    case accounts_block
+    case accounts_card_1
+    case accounts_card_2
+    case accounts_gear
+    case accounts_pin
+    case accounts_popolnit
+    case accounts_requisites
+    
+    
 }
