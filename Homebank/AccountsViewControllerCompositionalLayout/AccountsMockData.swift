@@ -18,7 +18,7 @@ struct AccountsMockData {
     }()
     
     private let buttons: AccountsListSection = {
-        .buttons([.init(image: AppImage.accounts_gear.rawValue, title: "Управление картой", extraText: "Настройки и безопасность", backgroundColor: ""),
+        .buttons([.init(image: AppImage.accounts_gear.rawValue, title: "Настройки", extraText: "Настройки и безопасность", backgroundColor: ""),
                   .init(image: AppImage.mb_perevody.rawValue, title: "Переводы", extraText: "", backgroundColor: ""),
                   .init(image: AppImage.mb_platezhi.rawValue, title: "Платежи", extraText: "", backgroundColor: ""),
                   .init(image: AppImage.accounts_popolnit.rawValue, title: "Пополнить", extraText: "", backgroundColor: ""),

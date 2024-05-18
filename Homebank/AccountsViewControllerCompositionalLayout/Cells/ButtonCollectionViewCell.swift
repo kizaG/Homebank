@@ -32,7 +32,7 @@ final class ButtonCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.font = UIFont(name: "ArialMT", size: 12)
         label.textColor = AppColor.grey04.uiColor
-        label.numberOfLines = 1
+        label.numberOfLines = 2
         return label
     }()
     

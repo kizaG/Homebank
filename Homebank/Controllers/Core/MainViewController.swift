@@ -213,7 +213,7 @@ extension MainViewController {
         
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(searchBar.snp.bottom).offset(12)
-            make.bottom.equalToSuperview().offset(-5)
+            make.bottom.equalToSuperview()
             make.leading.trailing.equalToSuperview()
         }
     }
@@ -280,7 +280,7 @@ extension MainViewController {
         let section = createLayoutSection(group: group,
                                           behavior: .none,
                                           interGroupSpacing: 20)
-        section.contentInsets = .init(top: 40, leading: 20, bottom: 50, trailing: 20)
+        section.contentInsets = .init(top: 20, leading: 20, bottom: 50, trailing: 20)
         return section
     }
     
@@ -303,7 +303,7 @@ extension MainViewController {
         let section = createLayoutSection(group: group,
                                           behavior: .groupPaging,
                                           interGroupSpacing: 10)
-        section.contentInsets = .init(top: -20, leading: 0, bottom: 0, trailing: 0)
+        section.contentInsets = .init(top: -40, leading: 0, bottom: 0, trailing: 0)
         section.boundarySupplementaryItems = [footer]
         return section
     }
@@ -322,7 +322,7 @@ extension MainViewController {
         let section = createLayoutSection(group: group,
                                           behavior: .none,
                                           interGroupSpacing: 0)
-        section.contentInsets = .init(top: 0, leading: 20, bottom: -8, trailing: 0)
+        section.contentInsets = .init(top: 0, leading: 20, bottom: 8, trailing: 0)
         section.decorationItems = [sectionBackgroundDecoration]
         return section
     }

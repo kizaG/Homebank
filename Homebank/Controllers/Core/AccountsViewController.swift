@@ -132,8 +132,7 @@ extension AccountsViewController {
     
     // MARK: - Create Layout
     
-    func createLayout() -> UICollectionViewCompositionalLayout {
-        
+    private func createLayout() -> UICollectionViewCompositionalLayout {
         let layout = UICollectionViewCompositionalLayout { [weak self] sectionIndex, _ in
             guard let self = self else {
                 return nil
@@ -141,16 +140,16 @@ extension AccountsViewController {
             let section = self.sections[sectionIndex]
             switch section {
             case .cards(_):
-                return self.creat()
-            case .mainButtons(_):
-                return self.createMainButtonSection()
+                return self.createCardSection()
+            case .buttons(_):
+                return self.createButtonSection()
             }
-            let config = UICollectionViewCompositionalLayoutConfiguration()
-            config.interSectionSpacing = 20
-            layout.configuration = config
-            layout.register(BackgroundDecorationView.self, forDecorationViewOfKind: MainElementKind.background)
-            return layout
         }
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        config.interSectionSpacing = 20
+        layout.configuration = config
+        layout.register(BackgroundDecorationView.self, forDecorationViewOfKind: MainElementKind.background)
+        return layout
     }
     
     private func createLayoutSection(group: NSCollectionLayoutGroup,
@@ -166,8 +165,8 @@ extension AccountsViewController {
         let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1),
                                                             heightDimension: .fractionalHeight(1)))
         
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.42),
-                                                                         heightDimension: .fractionalHeight(0.13)),
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.7),
+                                                                         heightDimension: .fractionalHeight(0.22)),
                                                        subitems: [item])
         
         let section = createLayoutSection(group: group,
@@ -182,14 +181,14 @@ extension AccountsViewController {
                                                             heightDimension: .fractionalHeight(1)))
         
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1),
-                                                                         heightDimension: .fractionalHeight(0.1)),
+                                                                         heightDimension: .fractionalHeight(0.09)),
                                                        subitems: [item])
         group.interItemSpacing = .flexible(1)
         
         let section = createLayoutSection(group: group,
                                           behavior: .none,
                                           interGroupSpacing: 20)
-        section.contentInsets = .init(top: 40, leading: 20, bottom: 50, trailing: 20)
+        section.contentInsets = .init(top: 0, leading: 20, bottom: 50, trailing: 20)
         return section
     }
 }
