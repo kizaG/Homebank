@@ -9,7 +9,8 @@ import UIKit
 import SnapKit
 
 struct MainElementKind {
-    static let background = "background-element-kind"
+    static let background01 = "background01-element-kind"
+    static let background02 = "background02-element-kind"
     static let sectionFooter = "section-footer-element-kind"
 }
 
@@ -90,6 +91,7 @@ final class MainViewController: UIViewController {
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: PosterFooterReusableView.identifier)
         collectionView.register(ExtraButtonCollectionViewCell.self,
                                 forCellWithReuseIdentifier: ExtraButtonCollectionViewCell.identifier)
+        collectionView.register(RecCollectionViewCell.self, forCellWithReuseIdentifier: RecCollectionViewCell.identifier)
         return collectionView
     }()
     
@@ -235,12 +237,15 @@ extension MainViewController {
                 return self.createPosterSection()
             case .extraButtons(_):
                 return self.createExtraButtonSection()
+            case .recs(_):
+                return self.createRecSection()
             }
         }
         let config = UICollectionViewCompositionalLayoutConfiguration()
         config.interSectionSpacing = 20
         layout.configuration = config
-        layout.register(BackgroundDecorationView.self, forDecorationViewOfKind: MainElementKind.background)
+        layout.register(BackgroundDecorationView.self, forDecorationViewOfKind: MainElementKind.background01)
+        layout.register(BackgroundDecorationRecView.self, forDecorationViewOfKind: MainElementKind.background02)
         return layout
     }
     
@@ -318,11 +323,29 @@ extension MainViewController {
         group.interItemSpacing = .flexible(1)
         
         let sectionBackgroundDecoration = NSCollectionLayoutDecorationItem.background(
-            elementKind: MainElementKind.background)
+            elementKind: MainElementKind.background01)
         let section = createLayoutSection(group: group,
                                           behavior: .none,
                                           interGroupSpacing: 0)
         section.contentInsets = .init(top: 0, leading: 20, bottom: 8, trailing: 0)
+        section.decorationItems = [sectionBackgroundDecoration]
+        return section
+    }
+    
+    private func createRecSection() -> NSCollectionLayoutSection {
+        let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1),
+                                                            heightDimension: .fractionalHeight(1)))
+        
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.42),
+                                                                         heightDimension: .fractionalHeight(0.13)),
+                                                       subitems: [item])
+        
+        let sectionBackgroundDecoration = NSCollectionLayoutDecorationItem.background(
+            elementKind: MainElementKind.background02)
+        let section = createLayoutSection(group: group,
+                                          behavior: .groupPaging,
+                                          interGroupSpacing: 10)
+        section.contentInsets = .init(top: 0, leading: 20, bottom: 0, trailing: 20)
         section.decorationItems = [sectionBackgroundDecoration]
         return section
     }
@@ -373,6 +396,13 @@ extension MainViewController: UICollectionViewDelegate,
             cell.configureCell(imageName: extraButton[indexPath.row].image,
                                title: extraButton[indexPath.row].title,
                                backgroundColor: extraButton[indexPath.row].backgroundColor)
+            return cell
+            
+        case .recs(let rec):
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecCollectionViewCell.identifier, for: indexPath) as? RecCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            cell.configureCell(imageName: rec[indexPath.row].image)
             return cell
         }
     }

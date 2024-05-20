@@ -22,41 +22,41 @@ extension AppImageProtocol {
 }
 
 enum AppImage: String, AppImageProtocol {
-    case avatar = "avatar"
-    case tab_main = "tab_main"
-    case tab_qr = "tab_qr"
-    case tab_accounts = "tab_accounts"
-    case tab_menu = "tab_menu"
+    case avatar
+    case tab_main
+    case tab_qr
+    case tab_accounts
+    case tab_menu
     
-    case info_century = "info_century"
-    case info_invest = "info_invest"
-    case info_gosuslugi = "info_gosuslugi"
-    case info_ipoteka = "info_ipoteka"
+    case info_century
+    case info_invest
+    case info_gosuslugi
+    case info_ipoteka
     
-    case mb_gosuslugi = "mb_gosuslugi"
-    case mb_info = "mb_info"
-    case mb_invest = "mb_invest"
-    case mb_market = "mb_market"
-    case mb_perevody = "mb_perevody"
-    case mb_platezhi = "mb_platezhi"
-    case mb_strahovka = "mb_strahovka"
-    case mb_travel = "mb_travel"
+    case mb_gosuslugi
+    case mb_info
+    case mb_invest
+    case mb_market
+    case mb_perevody
+    case mb_platezhi
+    case mb_strahovka
+    case mb_travel
     
-    case poster_bonus = "poster_bonus"
-    case poster_century = "poster_century"
-    case poster_setanta = "poster_setanta"
-    case poster_vybory = "poster_vybory"
+    case poster_bonus
+    case poster_century
+    case poster_setanta
+    case poster_vybory
     
-    case eb_credit = "eb_credit"
-    case eb_rassrochka = "eb_rassrochka"
-    case eb_deposit = "eb_deposit"
-    case eb_club = "eb_club"
+    case eb_credit
+    case eb_rassrochka
+    case eb_deposit
+    case eb_club
     
-    case navbar_history = "navbar_history"
-    case navbar_bell = "navbar_bell"
-    case navbar_message = "navbar_message"
+    case navbar_history
+    case navbar_bell
+    case navbar_message
     
-    case accounts_add_card = "accounts_add_card"
+    case accounts_add_card
     case accounts_apple
     case accounts_block
     case accounts_card_1
@@ -66,5 +66,7 @@ enum AppImage: String, AppImageProtocol {
     case accounts_popolnit
     case accounts_requisites
     
-    
+    case rec_market
+    case rec_ten
+    case rec_twelve
 }

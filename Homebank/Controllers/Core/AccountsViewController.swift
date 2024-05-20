@@ -148,7 +148,7 @@ extension AccountsViewController {
         let config = UICollectionViewCompositionalLayoutConfiguration()
         config.interSectionSpacing = 20
         layout.configuration = config
-        layout.register(BackgroundDecorationView.self, forDecorationViewOfKind: MainElementKind.background)
+        layout.register(BackgroundDecorationView.self, forDecorationViewOfKind: MainElementKind.background01)
         return layout
     }
     

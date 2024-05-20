@@ -33,6 +33,8 @@
 		C258B44A2BF7541E00AE0B64 /* AccountsMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B4492BF7541E00AE0B64 /* AccountsMockData.swift */; };
 		C258B44C2BF7542B00AE0B64 /* AccountsListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B44B2BF7542B00AE0B64 /* AccountsListItem.swift */; };
 		C258B44E2BF7543700AE0B64 /* AccountsListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B44D2BF7543700AE0B64 /* AccountsListSection.swift */; };
+		C2EA109E2BFB4A150090A357 /* RecCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA109D2BFB4A150090A357 /* RecCollectionViewCell.swift */; };
+		C2EA10A42BFB520B0090A357 /* BackgroundDecorationRecView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA10A32BFB520B0090A357 /* BackgroundDecorationRecView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,8 @@
 		C258B4492BF7541E00AE0B64 /* AccountsMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsMockData.swift; sourceTree = "<group>"; };
 		C258B44B2BF7542B00AE0B64 /* AccountsListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsListItem.swift; sourceTree = "<group>"; };
 		C258B44D2BF7543700AE0B64 /* AccountsListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsListSection.swift; sourceTree = "<group>"; };
+		C2EA109D2BFB4A150090A357 /* RecCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecCollectionViewCell.swift; sourceTree = "<group>"; };
+		C2EA10A32BFB520B0090A357 /* BackgroundDecorationRecView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundDecorationRecView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +177,7 @@
 				C258B4352BF3BECB00AE0B64 /* MainButtonCollectionViewCell.swift */,
 				C258B4372BF3BED800AE0B64 /* PosterCollectionViewCell.swift */,
 				C258B4392BF3BEEE00AE0B64 /* ExtraButtonCollectionViewCell.swift */,
+				C2EA109D2BFB4A150090A357 /* RecCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -182,6 +187,7 @@
 			children = (
 				C258B43B2BF4B5FA00AE0B64 /* BackgroundDecorationView.swift */,
 				C258B43E2BF4B9FE00AE0B64 /* PosterFooterReusableView.swift */,
+				C2EA10A32BFB520B0090A357 /* BackgroundDecorationRecView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -293,6 +299,7 @@
 				C258B42B2BF3B4A200AE0B64 /* MainListItem.swift in Sources */,
 				C258B42F2BF3B67200AE0B64 /* MainMockData.swift in Sources */,
 				C2198DDC2BEDDA700074AE6F /* MainViewController.swift in Sources */,
+				C2EA10A42BFB520B0090A357 /* BackgroundDecorationRecView.swift in Sources */,
 				C258B40A2BEDE59400AE0B64 /* QRViewController.swift in Sources */,
 				C258B4482BF752FC00AE0B64 /* ButtonCollectionViewCell.swift in Sources */,
 				C258B44E2BF7543700AE0B64 /* AccountsListSection.swift in Sources */,
@@ -313,6 +320,7 @@
 				C258B43A2BF3BEEE00AE0B64 /* ExtraButtonCollectionViewCell.swift in Sources */,
 				C258B4362BF3BECB00AE0B64 /* MainButtonCollectionViewCell.swift in Sources */,
 				C258B4342BF3BD5800AE0B64 /* InfoCollectionViewCell.swift in Sources */,
+				C2EA109E2BFB4A150090A357 /* RecCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

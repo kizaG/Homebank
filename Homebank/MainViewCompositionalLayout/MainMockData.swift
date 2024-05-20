@@ -44,7 +44,14 @@ struct MainMockData {
                        .init(image: AppImage.eb_club.rawValue, title: "Halyk Club", extraText: "", backgroundColor: AppColor.yellow.rawValue),])
     }()
     
+    private let recs: MainListSection = {
+        .recs([.init(image: AppImage.info_gosuslugi.rawValue, title: "", extraText: "", backgroundColor: ""),
+               .init(image: AppImage.rec_ten.rawValue, title: "", extraText: "", backgroundColor: ""),
+               .init(image: AppImage.rec_twelve.rawValue, title: "", extraText: "", backgroundColor: ""),
+               .init(image: AppImage.rec_market.rawValue, title: "", extraText: "", backgroundColor: "")])
+    }()
+    
     var pageData: [MainListSection] {
-        [infos, mainButtons, posters, extraButtons]
+        [infos, mainButtons, posters, extraButtons, recs]
     }
 }

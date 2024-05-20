@@ -12,13 +12,15 @@ enum MainListSection {
     case mainButtons([MainListItem])
     case posters([MainListItem])
     case extraButtons([MainListItem])
+    case recs([MainListItem])
     
     var items: [MainListItem] {
         switch self {
         case .infos(let items),
                 .mainButtons(let items),
                 .posters(let items),
-                .extraButtons(let items):
+                .extraButtons(let items),
+                .recs(let items):
             return items
         }
     }
