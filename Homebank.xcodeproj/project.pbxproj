@@ -35,6 +35,7 @@
 		C258B44E2BF7543700AE0B64 /* AccountsListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B44D2BF7543700AE0B64 /* AccountsListSection.swift */; };
 		C2EA109E2BFB4A150090A357 /* RecCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA109D2BFB4A150090A357 /* RecCollectionViewCell.swift */; };
 		C2EA10A42BFB520B0090A357 /* BackgroundDecorationRecView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA10A32BFB520B0090A357 /* BackgroundDecorationRecView.swift */; };
+		C2EA10A62BFC99960090A357 /* RecHeaderReusableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA10A52BFC99960090A357 /* RecHeaderReusableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		C258B44D2BF7543700AE0B64 /* AccountsListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsListSection.swift; sourceTree = "<group>"; };
 		C2EA109D2BFB4A150090A357 /* RecCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecCollectionViewCell.swift; sourceTree = "<group>"; };
 		C2EA10A32BFB520B0090A357 /* BackgroundDecorationRecView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundDecorationRecView.swift; sourceTree = "<group>"; };
+		C2EA10A52BFC99960090A357 /* RecHeaderReusableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecHeaderReusableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 				C258B43B2BF4B5FA00AE0B64 /* BackgroundDecorationView.swift */,
 				C258B43E2BF4B9FE00AE0B64 /* PosterFooterReusableView.swift */,
 				C2EA10A32BFB520B0090A357 /* BackgroundDecorationRecView.swift */,
+				C2EA10A52BFC99960090A357 /* RecHeaderReusableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				C258B40D2BEDEB3B00AE0B64 /* AppColor.swift in Sources */,
 				C258B43C2BF4B5FA00AE0B64 /* BackgroundDecorationView.swift in Sources */,
 				C258B4382BF3BED800AE0B64 /* PosterCollectionViewCell.swift in Sources */,
+				C2EA10A62BFC99960090A357 /* RecHeaderReusableViewCell.swift in Sources */,
 				C258B44A2BF7541E00AE0B64 /* AccountsMockData.swift in Sources */,
 				C258B43F2BF4B9FE00AE0B64 /* PosterFooterReusableView.swift in Sources */,
 				C258B4112BEDF6DF00AE0B64 /* MenuViewController.swift in Sources */,

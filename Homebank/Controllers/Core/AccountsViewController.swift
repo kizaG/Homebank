@@ -166,7 +166,7 @@ extension AccountsViewController {
                                                             heightDimension: .fractionalHeight(1)))
         
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.7),
-                                                                         heightDimension: .fractionalHeight(0.22)),
+                                                                         heightDimension: .fractionalHeight(0.23)),
                                                        subitems: [item])
         
         let section = createLayoutSection(group: group,

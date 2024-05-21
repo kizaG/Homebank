@@ -12,6 +12,7 @@ struct MainElementKind {
     static let background01 = "background01-element-kind"
     static let background02 = "background02-element-kind"
     static let sectionFooter = "section-footer-element-kind"
+    static let recHeader = "rec-header-element-kind"
 }
 
 final class MainViewController: UIViewController {
@@ -92,6 +93,8 @@ final class MainViewController: UIViewController {
         collectionView.register(ExtraButtonCollectionViewCell.self,
                                 forCellWithReuseIdentifier: ExtraButtonCollectionViewCell.identifier)
         collectionView.register(RecCollectionViewCell.self, forCellWithReuseIdentifier: RecCollectionViewCell.identifier)
+        collectionView.register(RecHeaderReusableViewCell.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: RecHeaderReusableViewCell.identifier)
         return collectionView
     }()
     
@@ -340,13 +343,22 @@ extension MainViewController {
                                                                          heightDimension: .fractionalHeight(0.13)),
                                                        subitems: [item])
         
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .estimated(100))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .topLeading)
+        
         let sectionBackgroundDecoration = NSCollectionLayoutDecorationItem.background(
             elementKind: MainElementKind.background02)
         let section = createLayoutSection(group: group,
                                           behavior: .groupPaging,
                                           interGroupSpacing: 10)
-        section.contentInsets = .init(top: 0, leading: 20, bottom: 0, trailing: 20)
+        section.contentInsets = .init(top: 20, leading: 20, bottom: 0, trailing: 20)
         section.decorationItems = [sectionBackgroundDecoration]
+        section.boundarySupplementaryItems = [header]
         return section
     }
 }
@@ -354,7 +366,7 @@ extension MainViewController {
 extension MainViewController: UICollectionViewDelegate,
                               UICollectionViewDataSource,
                               UICollectionViewDelegateFlowLayout {
-
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         sections.count
     }
@@ -417,6 +429,15 @@ extension MainViewController: UICollectionViewDelegate,
                     for: indexPath) as? PosterFooterReusableView
                 else { fatalError() }
                 return footer
+            }
+        case UICollectionView.elementKindSectionHeader:
+            if indexPath.section == 4 {
+                guard let header = collectionView.dequeueReusableSupplementaryView(
+                    ofKind: kind,
+                    withReuseIdentifier: RecHeaderReusableViewCell.identifier,
+                    for: indexPath) as? RecHeaderReusableViewCell
+                else { fatalError() }
+                return header
             }
         default:
             guard let footer = collectionView.dequeueReusableSupplementaryView(

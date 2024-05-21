@@ -16,7 +16,7 @@ final class CardCollectionViewCell: UICollectionViewCell {
     
     private lazy var infoImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
