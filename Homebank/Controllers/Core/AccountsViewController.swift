@@ -50,6 +50,14 @@ final class AccountsViewController: UIViewController {
         return collectionView
     }()
     
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(AccountsTableViewCell.self, forCellReuseIdentifier: AccountsTableViewCell.identifier)
+        return tableView
+    }()
+    
     private let sections = AccountsMockData.shared.pageData
     
     // MARK: - Lifecycle
@@ -90,7 +98,7 @@ extension AccountsViewController {
     
     func setupViews() {
         
-        [collectionView].forEach {
+        [collectionView, tableView].forEach {
             view.addSubview($0)
         }
         [buttonsView].forEach {
@@ -125,8 +133,14 @@ extension AccountsViewController {
         
         collectionView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(12)
-            make.bottom.equalToSuperview().offset(-5)
+//            make.bottom.equalToSuperview().offset(-5)
             make.leading.trailing.equalToSuperview()
+            make.height.equalTo(view.frame.height/3*2)
+        }
+        
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(collectionView.snp.bottom).offset(20)
+            make.leading.trailing.bottom.equalToSuperview()
         }
     }
     
@@ -224,5 +238,18 @@ extension AccountsViewController: UICollectionViewDelegate,
                                extraText: button[indexPath.row].extraText)
             return cell
         }
+    }
+}
+
+extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountsTableViewCell.identifier, for: indexPath) as? AccountsTableViewCell else {
+            return UITableViewCell()
+        }
+        return cell
     }
 }
