@@ -17,6 +17,7 @@ final class AccountsViewController: UIViewController {
     
     // MARK: - UI
     
+    
     private lazy var buttonsView: UIView = {
         let view = UIView()
         return view
@@ -48,14 +49,6 @@ final class AccountsViewController: UIViewController {
         collectionView.register(ButtonCollectionViewCell.self,
                                 forCellWithReuseIdentifier: ButtonCollectionViewCell.identifier)
         return collectionView
-    }()
-    
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(AccountsTableViewCell.self, forCellReuseIdentifier: AccountsTableViewCell.identifier)
-        return tableView
     }()
     
     private let sections = AccountsMockData.shared.pageData
@@ -98,7 +91,7 @@ extension AccountsViewController {
     
     func setupViews() {
         
-        [collectionView, tableView].forEach {
+        [collectionView].forEach {
             view.addSubview($0)
         }
         [buttonsView].forEach {
@@ -112,7 +105,6 @@ extension AccountsViewController {
     // MARK: - Setup Constraints
     
     func setupConstraints() {
-        
         buttonsView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.trailing.equalToSuperview().offset(-20)
@@ -136,11 +128,6 @@ extension AccountsViewController {
 //            make.bottom.equalToSuperview().offset(-5)
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(view.frame.height/3*2)
-        }
-        
-        tableView.snp.makeConstraints { make in
-            make.top.equalTo(collectionView.snp.bottom).offset(20)
-            make.leading.trailing.bottom.equalToSuperview()
         }
     }
     
