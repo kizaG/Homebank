@@ -67,7 +67,7 @@ extension MainPageTableViewCell {
     
     func setupViews() {
         [collectionView].forEach {
-            self.addSubview($0)
+            contentView.addSubview($0)
         }
     }
     
@@ -122,7 +122,7 @@ extension MainPageTableViewCell {
                                                             heightDimension: .fractionalHeight(1)))
         
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.42),
-                                                                         heightDimension: .fractionalHeight(0.13)),
+                                                                         heightDimension: .fractionalHeight(0.11)),
                                                        subitems: [item])
         
         let section = createLayoutSection(group: group,
@@ -137,14 +137,14 @@ extension MainPageTableViewCell {
                                                             heightDimension: .fractionalHeight(1)))
         
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1),
-                                                                         heightDimension: .fractionalHeight(0.1)),
+                                                                         heightDimension: .fractionalHeight(0.09)),
                                                        subitems: [item])
         group.interItemSpacing = .flexible(1)
         
         let section = createLayoutSection(group: group,
                                           behavior: .none,
                                           interGroupSpacing: 20)
-        section.contentInsets = .init(top: 20, leading: 20, bottom: 50, trailing: 20)
+        section.contentInsets = .init(top: 0, leading: 20, bottom: 50, trailing: 20)
         return section
     }
     

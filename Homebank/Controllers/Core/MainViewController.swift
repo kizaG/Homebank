@@ -14,6 +14,7 @@ final class MainViewController: UIViewController {
     
     private lazy var tableView: UITableView = {
         var tableView = UITableView(frame: .zero, style: .plain)
+        tableView.backgroundColor = AppColor.grey01.uiColor
         tableView.separatorStyle = .none
         tableView.dataSource = self
         tableView.delegate = self
@@ -103,7 +104,7 @@ final class MainViewController: UIViewController {
         view.backgroundColor = AppColor.grey01.uiColor
         setupViews()
         setupConstraints()
-        
+        tableView.showsVerticalScrollIndicator = false
     }
     
     // MARK: - Action
@@ -195,9 +196,9 @@ extension MainViewController {
         }
         
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(searchBar.snp.bottom)
-            make.bottom.leading.trailing.equalToSuperview()
-            make.height.equalTo(300)
+            make.top.equalTo(searchBar.snp.bottom).offset(10)
+            make.bottom.equalToSuperview().offset(-90)
+            make.leading.trailing.equalToSuperview()
         }
     }
 }
@@ -211,9 +212,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MainPageTableViewCell.identifier, for: indexPath) as? MainPageTableViewCell else {
             return UITableViewCell()
         }
-        
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return view.frame.height
+    }
 }
