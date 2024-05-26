@@ -125,9 +125,8 @@ extension AccountsViewController {
         
         collectionView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(12)
-//            make.bottom.equalToSuperview().offset(-5)
+            make.bottom.equalToSuperview().offset(-5)
             make.leading.trailing.equalToSuperview()
-            make.height.equalTo(view.frame.height/3*2)
         }
     }
     
@@ -225,18 +224,5 @@ extension AccountsViewController: UICollectionViewDelegate,
                                extraText: button[indexPath.row].extraText)
             return cell
         }
-    }
-}
-
-extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountsTableViewCell.identifier, for: indexPath) as? AccountsTableViewCell else {
-            return UITableViewCell()
-        }
-        return cell
     }
 }
