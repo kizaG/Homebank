@@ -106,7 +106,6 @@
 		C2198DD62BEDDA700074AE6F /* Homebank */ = {
 			isa = PBXGroup;
 			children = (
-				C2EA10A72BFDE66D0090A357 /* AccountsVCTableView */,
 				C258B4402BF7510200AE0B64 /* AccountsPage */,
 				C258B4292BF3B47900AE0B64 /* MainPage */,
 				C258B4182BEDFC1F00AE0B64 /* App Resources */,
@@ -216,6 +215,7 @@
 		C258B4412BF751BF00AE0B64 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C2EA10A92BFDF2220090A357 /* AccountsTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -225,22 +225,6 @@
 			children = (
 				C258B4452BF7526D00AE0B64 /* CardCollectionViewCell.swift */,
 				C258B4472BF752FC00AE0B64 /* ButtonCollectionViewCell.swift */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		C2EA10A72BFDE66D0090A357 /* AccountsVCTableView */ = {
-			isa = PBXGroup;
-			children = (
-				C2EA10A82BFDF20D0090A357 /* Cells */,
-			);
-			path = AccountsVCTableView;
-			sourceTree = "<group>";
-		};
-		C2EA10A82BFDF20D0090A357 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				C2EA10A92BFDF2220090A357 /* AccountsTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";

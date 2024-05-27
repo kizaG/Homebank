@@ -44,16 +44,17 @@ final class MainPageTableViewCell: UITableViewCell {
     
     private let sections = MainMockData.shared.pageData
     
-    // MARK: - Lifecycle
+    // MARK: - Init
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        setupViews()
-        setupConstraints()
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.collectionViewLayout = createLayout()
+        
+        setupViews()
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
