@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C204C5EF2C05CA14002A8B03 /* AccountsInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C204C5EE2C05CA14002A8B03 /* AccountsInfoTableViewCell.swift */; };
 		C2198DD82BEDDA700074AE6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2198DD72BEDDA700074AE6F /* AppDelegate.swift */; };
 		C2198DDA2BEDDA700074AE6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2198DD92BEDDA700074AE6F /* SceneDelegate.swift */; };
 		C2198DDC2BEDDA700074AE6F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2198DDB2BEDDA700074AE6F /* MainViewController.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C204C5EE2C05CA14002A8B03 /* AccountsInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsInfoTableViewCell.swift; sourceTree = "<group>"; };
 		C2198DD42BEDDA700074AE6F /* Homebank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homebank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2198DD72BEDDA700074AE6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2198DD92BEDDA700074AE6F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				C2EA10A92BFDF2220090A357 /* AccountsTableViewCell.swift */,
+				C204C5EE2C05CA14002A8B03 /* AccountsInfoTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				C258B43F2BF4B9FE00AE0B64 /* PosterFooterReusableView.swift in Sources */,
 				C258B4112BEDF6DF00AE0B64 /* MenuViewController.swift in Sources */,
 				C258B44C2BF7542B00AE0B64 /* AccountsListItem.swift in Sources */,
+				C204C5EF2C05CA14002A8B03 /* AccountsInfoTableViewCell.swift in Sources */,
 				C258B42D2BF3B4FA00AE0B64 /* MainListSection.swift in Sources */,
 				C258B4162BEDFAEC00AE0B64 /* AppImage.swift in Sources */,
 				C258B43A2BF3BEEE00AE0B64 /* ExtraButtonCollectionViewCell.swift in Sources */,
