@@ -111,4 +111,17 @@ extension AccountsInfoTableViewCell {
             make.trailing.equalToSuperview().offset(-10)
         }
     }
+    
+    func configure(roundTop: Bool, roundBottom: Bool) {
+        if roundTop {
+            contentView.backgroundColor = AppColor.grey01.uiColor
+            infoView.layer.cornerRadius = 12
+            infoView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        }
+        if roundBottom {
+            contentView.backgroundColor = AppColor.grey01.uiColor
+            infoView.layer.cornerRadius = 12
+            infoView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+        }
+    }
 }

@@ -18,7 +18,6 @@ final class AccountsViewController: UIViewController {
         tableView.separatorStyle = .singleLine
         tableView.separatorColor = AppColor.grey01.uiColor
         tableView.allowsSelection = false
-        tableView.separatorInset = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(AccountsTableViewCell.self, forCellReuseIdentifier: AccountsTableViewCell.identifier)
@@ -147,6 +146,24 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         if indexPath.section == 1 {
+            if indexPath.row == 0 {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountsInfoTableViewCell.identifier, for: indexPath) as? AccountsInfoTableViewCell else {
+                    return UITableViewCell()
+                }
+                cell.configure(
+                    roundTop: true, roundBottom: false
+                )
+                return cell
+            }
+            if indexPath.row == 1 {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountsInfoTableViewCell.identifier, for: indexPath) as? AccountsInfoTableViewCell else {
+                    return UITableViewCell()
+                }
+                cell.configure(
+                    roundTop: false, roundBottom: true
+                )
+                return cell
+            }
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountsInfoTableViewCell.identifier, for: indexPath) as? AccountsInfoTableViewCell else {
                 return UITableViewCell()
             }
@@ -158,7 +175,7 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return view.frame.height
+            return view.frame.height/2
         }
         
         return 80

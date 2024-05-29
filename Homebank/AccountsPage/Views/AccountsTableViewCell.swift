@@ -106,13 +106,13 @@ extension AccountsTableViewCell {
                                                             heightDimension: .fractionalHeight(1)))
         
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.8),
-                                                                         heightDimension: .fractionalHeight(0.23)),
+                                                                         heightDimension: .fractionalHeight(0.35)),
                                                        subitems: [item])
         
         let section = createLayoutSection(group: group,
                                           behavior: .groupPaging,
                                           interGroupSpacing: 30)
-        section.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 0)
+        section.contentInsets = .init(top: 20, leading: 0, bottom: 0, trailing: 0)
         return section
     }
     
@@ -121,14 +121,14 @@ extension AccountsTableViewCell {
                                                             heightDimension: .fractionalHeight(1)))
         
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1),
-                                                                         heightDimension: .fractionalHeight(0.09)),
+                                                                         heightDimension: .fractionalHeight(0.18)),
                                                        subitems: [item])
         group.interItemSpacing = .flexible(1)
         
         let section = createLayoutSection(group: group,
                                           behavior: .none,
                                           interGroupSpacing: 20)
-        section.contentInsets = .init(top: 0, leading: 0, bottom: 50, trailing: 0)
+        section.contentInsets = .init(top: 20, leading: 0, bottom: 50, trailing: 0)
         return section
     }
 }
