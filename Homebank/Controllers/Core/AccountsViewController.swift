@@ -22,6 +22,7 @@ final class AccountsViewController: UIViewController {
         tableView.delegate = self
         tableView.register(AccountsTableViewCell.self, forCellReuseIdentifier: AccountsTableViewCell.identifier)
         tableView.register(AccountsInfoTableViewCell.self, forCellReuseIdentifier: AccountsInfoTableViewCell.identifier)
+        tableView.register(AccountsInfoTableHeaderView.self, forHeaderFooterViewReuseIdentifier: AccountsInfoTableHeaderView.identifier)
         return tableView
     }()
     
@@ -122,6 +123,21 @@ extension AccountsViewController {
 }
 
 extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 1 {
+            let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: AccountsInfoTableHeaderView.identifier)
+            return header
+        }
+        return UIView()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 1 {
+            return 40
+        }
+        return 0
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3

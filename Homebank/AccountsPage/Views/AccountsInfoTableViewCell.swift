@@ -24,6 +24,9 @@ final class AccountsInfoTableViewCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.image = UIImage(named: AppImage.eb_credit.rawValue)
         imageView.backgroundColor = AppColor.green01.uiColor
+        imageView.contentMode = .center
+        imageView.layer.cornerRadius = 8
+        imageView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: -10, right: -10)
         return imageView
     }()
     
@@ -36,18 +39,21 @@ final class AccountsInfoTableViewCell: UITableViewCell {
     private lazy var extraLabel: UILabel = {
         let label = UILabel()
         label.text = "До 30.04.2023"
+        label.textColor = AppColor.grey02.uiColor
         return label
     }()
     
     private lazy var amountLabel: UILabel = {
         let label = UILabel()
         label.text = "300 000.00 T"
+        label.textColor = AppColor.green01.uiColor
         return label
     }()
     
     private lazy var amountExtraLabel: UILabel = {
         let label = UILabel()
         label.text = "Ставка 16%"
+        label.textColor = AppColor.grey02.uiColor
         return label
     }()
     
