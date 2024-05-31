@@ -42,7 +42,7 @@ extension AccountsInfoTableHeaderView {
     private func setupConstraints() {
         headerLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview()
+            make.leading.equalToSuperview().offset(20)
         }
     }
 }

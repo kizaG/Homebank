@@ -116,8 +116,8 @@ extension AccountsViewController {
         
         tableView.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
         }
     }
 }

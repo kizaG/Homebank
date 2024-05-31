@@ -66,7 +66,9 @@ extension AccountsTableViewCell {
     
     private func setupConstraints() {
         collectionView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.bottom.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
         }
     }
     
@@ -106,13 +108,13 @@ extension AccountsTableViewCell {
                                                             heightDimension: .fractionalHeight(1)))
         
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(0.8),
-                                                                         heightDimension: .fractionalHeight(0.35)),
+                                                                         heightDimension: .fractionalHeight(0.45)),
                                                        subitems: [item])
         
         let section = createLayoutSection(group: group,
                                           behavior: .groupPaging,
-                                          interGroupSpacing: 30)
-        section.contentInsets = .init(top: 20, leading: 0, bottom: 0, trailing: 0)
+                                          interGroupSpacing: 10)
+        section.contentInsets = .init(top: 20, leading: 20, bottom: 0, trailing: 20)
         return section
     }
     
@@ -128,11 +130,10 @@ extension AccountsTableViewCell {
         let section = createLayoutSection(group: group,
                                           behavior: .none,
                                           interGroupSpacing: 20)
-        section.contentInsets = .init(top: 20, leading: 0, bottom: 50, trailing: 0)
+        section.contentInsets = .init(top: 20, leading: 20, bottom: 0, trailing: 20)
         return section
     }
 }
-
 
 extension AccountsTableViewCell: UICollectionViewDelegate,
                                   UICollectionViewDataSource,
@@ -165,5 +166,13 @@ extension AccountsTableViewCell: UICollectionViewDelegate,
                                extraText: button[indexPath.row].extraText)
             return cell
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionFooter {
+            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: AccountsElementKind.sectionFooter, for: indexPath)
+            footer.frame = .zero
+        }
+        return UICollectionReusableView()
     }
 }

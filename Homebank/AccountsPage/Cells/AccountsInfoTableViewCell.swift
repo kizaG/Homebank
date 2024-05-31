@@ -88,7 +88,9 @@ extension AccountsInfoTableViewCell {
     
     private func setupConstraints() {
         infoView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.bottom.equalToSuperview()
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
         }
         
         iconImageView.snp.makeConstraints { make in

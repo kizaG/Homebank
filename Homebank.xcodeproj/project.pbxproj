@@ -91,6 +91,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C204C5F42C09C920002A8B03 /* AccountsData */ = {
+			isa = PBXGroup;
+			children = (
+				C258B44B2BF7542B00AE0B64 /* AccountsListItem.swift */,
+				C258B44D2BF7543700AE0B64 /* AccountsListSection.swift */,
+				C258B4492BF7541E00AE0B64 /* AccountsMockData.swift */,
+			);
+			path = AccountsData;
+			sourceTree = "<group>";
+		};
+		C204C5F52C09C92E002A8B03 /* MainPageData */ = {
+			isa = PBXGroup;
+			children = (
+				C258B42A2BF3B4A200AE0B64 /* MainListItem.swift */,
+				C258B42C2BF3B4FA00AE0B64 /* MainListSection.swift */,
+				C258B42E2BF3B67200AE0B64 /* MainMockData.swift */,
+			);
+			path = MainPageData;
+			sourceTree = "<group>";
+		};
 		C2198DCB2BEDDA700074AE6F = {
 			isa = PBXGroup;
 			children = (
@@ -171,11 +191,9 @@
 		C258B4292BF3B47900AE0B64 /* MainPage */ = {
 			isa = PBXGroup;
 			children = (
+				C204C5F52C09C92E002A8B03 /* MainPageData */,
 				C258B43D2BF4B9DC00AE0B64 /* Views */,
 				C258B4322BF3BD4C00AE0B64 /* Cells */,
-				C258B42A2BF3B4A200AE0B64 /* MainListItem.swift */,
-				C258B42C2BF3B4FA00AE0B64 /* MainListSection.swift */,
-				C258B42E2BF3B67200AE0B64 /* MainMockData.swift */,
 			);
 			path = MainPage;
 			sourceTree = "<group>";
@@ -183,6 +201,8 @@
 		C258B4322BF3BD4C00AE0B64 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				C2EA10A52BFC99960090A357 /* RecHeaderReusableViewCell.swift */,
+				C2EA10AB2BFF35800090A357 /* MainPageTableViewCell.swift */,
 				C258B4332BF3BD5800AE0B64 /* InfoCollectionViewCell.swift */,
 				C258B4352BF3BECB00AE0B64 /* MainButtonCollectionViewCell.swift */,
 				C258B4372BF3BED800AE0B64 /* PosterCollectionViewCell.swift */,
@@ -198,8 +218,6 @@
 				C258B43B2BF4B5FA00AE0B64 /* BackgroundDecorationView.swift */,
 				C258B43E2BF4B9FE00AE0B64 /* PosterFooterReusableView.swift */,
 				C2EA10A32BFB520B0090A357 /* BackgroundDecorationRecView.swift */,
-				C2EA10A52BFC99960090A357 /* RecHeaderReusableViewCell.swift */,
-				C2EA10AB2BFF35800090A357 /* MainPageTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -207,11 +225,9 @@
 		C258B4402BF7510200AE0B64 /* AccountsPage */ = {
 			isa = PBXGroup;
 			children = (
+				C204C5F42C09C920002A8B03 /* AccountsData */,
 				C258B4412BF751BF00AE0B64 /* Views */,
 				C258B4422BF751C400AE0B64 /* Cells */,
-				C258B44B2BF7542B00AE0B64 /* AccountsListItem.swift */,
-				C258B44D2BF7543700AE0B64 /* AccountsListSection.swift */,
-				C258B4492BF7541E00AE0B64 /* AccountsMockData.swift */,
 			);
 			path = AccountsPage;
 			sourceTree = "<group>";
@@ -219,8 +235,6 @@
 		C258B4412BF751BF00AE0B64 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C2EA10A92BFDF2220090A357 /* AccountsTableViewCell.swift */,
-				C204C5EE2C05CA14002A8B03 /* AccountsInfoTableViewCell.swift */,
 				C204C5F22C0873B8002A8B03 /* AccountsInfoTableHeaderView.swift */,
 			);
 			path = Views;
@@ -229,6 +243,8 @@
 		C258B4422BF751C400AE0B64 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				C2EA10A92BFDF2220090A357 /* AccountsTableViewCell.swift */,
+				C204C5EE2C05CA14002A8B03 /* AccountsInfoTableViewCell.swift */,
 				C258B4452BF7526D00AE0B64 /* CardCollectionViewCell.swift */,
 				C258B4472BF752FC00AE0B64 /* ButtonCollectionViewCell.swift */,
 			);
