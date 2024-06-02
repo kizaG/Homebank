@@ -16,7 +16,13 @@ final class AccountsInfoTableHeaderView: UITableViewHeaderFooterView {
     
     private lazy var headerLabel: UILabel = {
         let label = UILabel()
-        label.text = "Депозиты и бонусы"
+        label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        return label
+    }()
+    
+    private lazy var headerExtraLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = AppColor.grey02.uiColor
         label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         return label
     }()
@@ -36,7 +42,9 @@ final class AccountsInfoTableHeaderView: UITableViewHeaderFooterView {
 extension AccountsInfoTableHeaderView {
     
     private func setupViews() {
-        contentView.addSubview(headerLabel)
+        [headerLabel, headerExtraLabel].forEach {
+            contentView.addSubview($0)
+        }
     }
     
     private func setupConstraints() {
@@ -44,5 +52,15 @@ extension AccountsInfoTableHeaderView {
             make.centerY.equalToSuperview()
             make.leading.equalToSuperview().offset(20)
         }
+        
+        headerExtraLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.trailing.equalToSuperview().offset(-20)
+        }
+    }
+    
+    func configure(headerTitle: String, headerExtraTitle: String) {
+        self.headerLabel.text = headerTitle
+        self.headerExtraLabel.text = headerExtraTitle
     }
 }

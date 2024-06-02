@@ -113,8 +113,8 @@ extension AccountsTableViewCell {
         
         let section = createLayoutSection(group: group,
                                           behavior: .groupPaging,
-                                          interGroupSpacing: 10)
-        section.contentInsets = .init(top: 20, leading: 20, bottom: 0, trailing: 20)
+                                          interGroupSpacing: 0)
+        section.contentInsets = .init(top: 20, leading: 0, bottom: 0, trailing: 20)
         return section
     }
     
@@ -154,7 +154,13 @@ extension AccountsTableViewCell: UICollectionViewDelegate,
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardCollectionViewCell.identifier, for: indexPath) as? CardCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            cell.configureCell(imageName: card[indexPath.row].image)
+            if indexPath.row == 2 {
+                cell.configureCell(imageName: card[indexPath.row].image,
+                                   contentMode: .center)
+            } else {
+                cell.configureCell(imageName: card[indexPath.row].image,
+                                   contentMode: .top)
+            }
             return cell
             
         case .buttons(let button):
@@ -166,13 +172,5 @@ extension AccountsTableViewCell: UICollectionViewDelegate,
                                extraText: button[indexPath.row].extraText)
             return cell
         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if kind == UICollectionView.elementKindSectionFooter {
-            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: AccountsElementKind.sectionFooter, for: indexPath)
-            footer.frame = .zero
-        }
-        return UICollectionReusableView()
     }
 }

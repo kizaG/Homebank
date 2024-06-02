@@ -126,7 +126,17 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 1 {
-            let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: AccountsInfoTableHeaderView.identifier)
+            guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: AccountsInfoTableHeaderView.identifier) as? AccountsInfoTableHeaderView else {
+                return nil
+            }
+            header.configure(headerTitle: "Депозиты и бонусы", headerExtraTitle: "")
+            return header
+        }
+        if section == 2 {
+            guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: AccountsInfoTableHeaderView.identifier) as? AccountsInfoTableHeaderView else {
+                return nil
+            }
+            header.configure(headerTitle: "Кредиты", headerExtraTitle: "Оплата до 20.05")
             return header
         }
         return UIView()
