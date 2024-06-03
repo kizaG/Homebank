@@ -17,7 +17,7 @@ final class TabBarController: UITabBarController, UISearchBarDelegate {
         self.tabBar.backgroundColor = AppColor.white.uiColor
         setUpTabs()
     }
-
+    
     // MARK: - Private
     
     private func setUpTabs() {
@@ -57,8 +57,18 @@ final class TabBarController: UITabBarController, UISearchBarDelegate {
             nav.navigationBar.prefersLargeTitles = true
         }
         
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.configureWithOpaqueBackground()
+        navigationBarAppearance.backgroundColor = AppColor.grey01.uiColor
+        navigationBarAppearance.titleTextAttributes = [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 25, weight: .medium)
+        ]
+        
         UITabBar.appearance().tintColor = AppColor.green01.uiColor
         UITabBar.appearance().unselectedItemTintColor = AppColor.grey02.uiColor
+        
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().standardAppearance = navigationBarAppearance
         
         setViewControllers(
             [nav1, nav2, nav3, nav4],

@@ -143,7 +143,7 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 1 {
+        if section == 1 || section == 2 {
             return 40
         }
         return 0
@@ -194,6 +194,36 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             return cell
+        }
+        
+        if indexPath.section == 2 {
+            if indexPath.row == 0 {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountsInfoTableViewCell.identifier, for: indexPath) as? AccountsInfoTableViewCell else {
+                    return UITableViewCell()
+                }
+                cell.configure(
+                    roundTop: true, roundBottom: false
+                )
+                return cell
+            }
+            else if indexPath.row == 3 {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountsInfoTableViewCell.identifier, for: indexPath) as? AccountsInfoTableViewCell else {
+                    return UITableViewCell()
+                }
+                cell.configure(
+                    roundTop: false, roundBottom: true
+                )
+                return cell
+            }
+            else {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountsInfoTableViewCell.identifier, for: indexPath) as? AccountsInfoTableViewCell else {
+                    return UITableViewCell()
+                }
+                cell.configure(
+                    roundTop: false, roundBottom: false
+                )
+                return cell
+            }
         }
         
         return UITableViewCell()
