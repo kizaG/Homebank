@@ -23,6 +23,7 @@ final class AccountsViewController: UIViewController {
         tableView.register(AccountsTableViewCell.self, forCellReuseIdentifier: AccountsTableViewCell.identifier)
         tableView.register(AccountsInfoTableViewCell.self, forCellReuseIdentifier: AccountsInfoTableViewCell.identifier)
         tableView.register(AccountsInfoTableHeaderView.self, forHeaderFooterViewReuseIdentifier: AccountsInfoTableHeaderView.identifier)
+        tableView.register(AccountsInfoTableFooterView.self, forHeaderFooterViewReuseIdentifier: AccountsInfoTableFooterView.identifier)
         return tableView
     }()
     
@@ -115,14 +116,23 @@ extension AccountsViewController {
         }
         
         tableView.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
+            make.edges.equalToSuperview()
         }
     }
 }
 
 extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if section == 2 {
+            guard let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: AccountsInfoTableFooterView.identifier) as? AccountsInfoTableFooterView else {
+                return nil
+            }
+            return footer
+        }
+        
+        return UIView()
+    }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 1 {
@@ -139,12 +149,20 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
             header.configure(headerTitle: "Кредиты", headerExtraTitle: "Оплата до 20.05")
             return header
         }
+        
         return UIView()
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 1 || section == 2 {
             return 40
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == 2 {
+            return 60
         }
         return 0
     }

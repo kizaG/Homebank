@@ -35,6 +35,7 @@
 		C258B44A2BF7541E00AE0B64 /* AccountsMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B4492BF7541E00AE0B64 /* AccountsMockData.swift */; };
 		C258B44C2BF7542B00AE0B64 /* AccountsListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B44B2BF7542B00AE0B64 /* AccountsListItem.swift */; };
 		C258B44E2BF7543700AE0B64 /* AccountsListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B44D2BF7543700AE0B64 /* AccountsListSection.swift */; };
+		C28CD7DD2C0F0BA80071023F /* AccountsInfoTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28CD7DC2C0F0BA80071023F /* AccountsInfoTableFooterView.swift */; };
 		C2EA109E2BFB4A150090A357 /* RecCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA109D2BFB4A150090A357 /* RecCollectionViewCell.swift */; };
 		C2EA10A42BFB520B0090A357 /* BackgroundDecorationRecView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA10A32BFB520B0090A357 /* BackgroundDecorationRecView.swift */; };
 		C2EA10A62BFC99960090A357 /* RecHeaderReusableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA10A52BFC99960090A357 /* RecHeaderReusableViewCell.swift */; };
@@ -72,6 +73,7 @@
 		C258B4492BF7541E00AE0B64 /* AccountsMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsMockData.swift; sourceTree = "<group>"; };
 		C258B44B2BF7542B00AE0B64 /* AccountsListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsListItem.swift; sourceTree = "<group>"; };
 		C258B44D2BF7543700AE0B64 /* AccountsListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsListSection.swift; sourceTree = "<group>"; };
+		C28CD7DC2C0F0BA80071023F /* AccountsInfoTableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsInfoTableFooterView.swift; sourceTree = "<group>"; };
 		C2EA109D2BFB4A150090A357 /* RecCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecCollectionViewCell.swift; sourceTree = "<group>"; };
 		C2EA10A32BFB520B0090A357 /* BackgroundDecorationRecView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundDecorationRecView.swift; sourceTree = "<group>"; };
 		C2EA10A52BFC99960090A357 /* RecHeaderReusableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecHeaderReusableViewCell.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 		C258B4412BF751BF00AE0B64 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C28CD7DC2C0F0BA80071023F /* AccountsInfoTableFooterView.swift */,
 				C204C5F22C0873B8002A8B03 /* AccountsInfoTableHeaderView.swift */,
 			);
 			path = Views;
@@ -338,6 +341,7 @@
 				C258B4062BEDDF9300AE0B64 /* TabBarController.swift in Sources */,
 				C2198DD82BEDDA700074AE6F /* AppDelegate.swift in Sources */,
 				C258B4462BF7526D00AE0B64 /* CardCollectionViewCell.swift in Sources */,
+				C28CD7DD2C0F0BA80071023F /* AccountsInfoTableFooterView.swift in Sources */,
 				C2198DDA2BEDDA700074AE6F /* SceneDelegate.swift in Sources */,
 				C258B40F2BEDF64700AE0B64 /* AccountsViewController.swift in Sources */,
 				C258B40D2BEDEB3B00AE0B64 /* AppColor.swift in Sources */,

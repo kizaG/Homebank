@@ -121,13 +121,13 @@ extension AccountsInfoTableViewCell {
     }
     
     func configure(roundTop: Bool, roundBottom: Bool) {
+        contentView.backgroundColor = AppColor.grey01.uiColor
+        
         if roundTop {
-            contentView.backgroundColor = AppColor.grey01.uiColor
             infoView.layer.cornerRadius = 12
             infoView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         }
         if roundBottom {
-            contentView.backgroundColor = AppColor.grey01.uiColor
             infoView.layer.cornerRadius = 12
             infoView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         }
