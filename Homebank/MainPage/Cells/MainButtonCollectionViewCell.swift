@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class MainButtonCollectionViewCell: UICollectionViewCell {
+final class MainButtonCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "MainButtonCollectionViewCell"
     
@@ -41,7 +41,7 @@ class MainButtonCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    // MARK: - Lifecycle
+    // MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -56,14 +56,19 @@ class MainButtonCollectionViewCell: UICollectionViewCell {
 }
 
 extension MainButtonCollectionViewCell {
-    func setupViews() {
+    
+    // MARK: - Setup Views
+    
+    private func setupViews() {
         addSubview(buttonView)
         [buttonImageView, buttonTitle, buttonExtraText].forEach {
             buttonView.addSubview($0)
         }
     }
     
-    func setupConstraints() {
+    // MARK: - Setup Constraints
+    
+    private func setupConstraints() {
         buttonView.snp.makeConstraints { make in
             make.top.bottom.leading.trailing.equalToSuperview()
         }

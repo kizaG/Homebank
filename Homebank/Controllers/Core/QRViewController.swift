@@ -9,6 +9,8 @@ import UIKit
 
 final class QRViewController: UIViewController {
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = AppColor.grey01.uiColor

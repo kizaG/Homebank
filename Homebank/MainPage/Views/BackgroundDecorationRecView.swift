@@ -7,9 +7,12 @@
 
 import UIKit
 
-class BackgroundDecorationRecView: UICollectionReusableView {
+final class BackgroundDecorationRecView: UICollectionReusableView {
+    
     static let identifier = "BackgroundDecorationRecView"
 
+    // MARK: - Init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = AppColor.white.uiColor

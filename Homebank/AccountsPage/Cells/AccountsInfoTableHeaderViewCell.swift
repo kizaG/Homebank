@@ -43,12 +43,15 @@ final class AccountsInfoTableHeaderViewCell: UITableViewCell {
 
 extension AccountsInfoTableHeaderViewCell {
     
+    // MARK: - Setup Views
+    
     private func setupViews() {
         [headerLabel, headerExtraLabel].forEach {
             contentView.addSubview($0)
         }
-        
     }
+    
+    // MARK: - Setup Constraints
     
     private func setupConstraints() {
         headerLabel.snp.makeConstraints { make in

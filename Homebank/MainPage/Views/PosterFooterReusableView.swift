@@ -9,8 +9,11 @@ import UIKit
 import SnapKit
 
 final class PosterFooterReusableView: UICollectionReusableView {
+    
     static let identifier = "PosterFooterReusableView"
 
+    // MARK: - UI
+    
     private lazy var pageControl: UIPageControl = {
         let pageControl = UIPageControl(frame: .zero)
         pageControl.numberOfPages = 4
@@ -19,6 +22,8 @@ final class PosterFooterReusableView: UICollectionReusableView {
         return pageControl
     }()
 
+    // MARK: - Init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -28,7 +33,10 @@ final class PosterFooterReusableView: UICollectionReusableView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
 
+extension PosterFooterReusableView {
+    
     private func setupViews() {
         addSubview(pageControl)
         pageControl.numberOfPages = 4

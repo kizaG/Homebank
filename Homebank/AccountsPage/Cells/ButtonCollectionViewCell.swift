@@ -41,7 +41,7 @@ final class ButtonCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    // MARK: - Lifecycle
+    // MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -56,16 +56,17 @@ final class ButtonCollectionViewCell: UICollectionViewCell {
 }
 
 extension ButtonCollectionViewCell {
-    func setupViews() {
+    
+    private func setupViews() {
         addSubview(buttonView)
         [buttonImageView, buttonTitle, buttonExtraText].forEach {
             buttonView.addSubview($0)
         }
     }
     
-    func setupConstraints() {
+    private func setupConstraints() {
         buttonView.snp.makeConstraints { make in
-            make.top.bottom.leading.trailing.equalToSuperview()
+            make.edges.equalToSuperview()
         }
         
         buttonImageView.snp.makeConstraints { make in

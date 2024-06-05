@@ -66,7 +66,7 @@ extension MainPageTableViewCell {
     
     // MARK: - Setup Views
     
-    func setupViews() {
+    private func setupViews() {
         [collectionView].forEach {
             contentView.addSubview($0)
         }
@@ -74,7 +74,7 @@ extension MainPageTableViewCell {
     
     // MARK: - Setup Connstraints
     
-    func setupConstraints() {
+    private func setupConstraints() {
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -82,7 +82,7 @@ extension MainPageTableViewCell {
     
     // MARK: - Create Layout
     
-    func createLayout() -> UICollectionViewCompositionalLayout {
+    private func createLayout() -> UICollectionViewCompositionalLayout {
         let layout = UICollectionViewCompositionalLayout { [weak self] sectionIndex, _ in
             guard let self = self else {
                 return nil
@@ -219,7 +219,6 @@ extension MainPageTableViewCell {
         return section
     }
 }
-
 
 extension MainPageTableViewCell: UICollectionViewDelegate,
                                   UICollectionViewDataSource,

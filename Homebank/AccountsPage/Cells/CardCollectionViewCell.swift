@@ -19,7 +19,7 @@ final class CardCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
-    // MARK: - Lifecycle
+    // MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,13 +34,14 @@ final class CardCollectionViewCell: UICollectionViewCell {
 }
 
 extension CardCollectionViewCell {
-    func setupViews() {
+    
+    private func setupViews() {
         addSubview(infoImageView)
     }
     
-    func setupConstraints() {
+    private func setupConstraints() {
         infoImageView.snp.makeConstraints { make in
-            make.top.bottom.leading.trailing.equalToSuperview()
+            make.edges.equalToSuperview()
         }
     }
     

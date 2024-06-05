@@ -47,10 +47,14 @@ final class AccountsInfoTableFooterViewCell: UITableViewCell {
 
 extension AccountsInfoTableFooterViewCell {
     
+    // MARK: - Setup Views
+    
     private func setupViews() {
         contentView.addSubview(payButton)
         contentView.backgroundColor = AppColor.grey01.uiColor
     }
+    
+    // MARK: - Setup Constraints
     
     private func setupConstraints() {
         payButton.snp.makeConstraints { make in

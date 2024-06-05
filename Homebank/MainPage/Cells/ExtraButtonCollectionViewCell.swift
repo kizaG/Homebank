@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ExtraButtonCollectionViewCell: UICollectionViewCell {
+final class ExtraButtonCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "ExtraButtonCollectionViewCell"
     
@@ -37,7 +37,7 @@ class ExtraButtonCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    // MARK: - Lifecycle
+    // MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -55,7 +55,7 @@ extension ExtraButtonCollectionViewCell {
     
     // MARK: - Setup Views
     
-    func setupViews() {
+    private func setupViews() {
         addSubview(buttonView)
         [buttonImageView, buttonTitle].forEach {
             buttonView.addSubview($0)
@@ -64,7 +64,7 @@ extension ExtraButtonCollectionViewCell {
     
     // MARK: - Setup Constraints
     
-    func setupConstraints() {
+    private func setupConstraints() {
         buttonView.snp.makeConstraints { make in
             make.top.bottom.leading.trailing.equalToSuperview()
         }
@@ -81,8 +81,6 @@ extension ExtraButtonCollectionViewCell {
             make.trailing.equalToSuperview()
         }
     }
-    
-    // MARK: - Configure Cell
     
     func configureCell(imageName: String, title: String, backgroundColor: String) {
         buttonImageView.image = UIImage(named: imageName)

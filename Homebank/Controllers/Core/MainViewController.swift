@@ -124,7 +124,7 @@ extension MainViewController {
     
     // MARK: - Setup Views
     
-    func setupViews() {
+    private func setupViews() {
         
         [searchBar, tableView].forEach {
             view.addSubview($0)
@@ -140,9 +140,9 @@ extension MainViewController {
         }
     }
     
-    // MARK: - Setup Connstraints
+    // MARK: - Setup Constraints
     
-    func setupConstraints() {
+    private func setupConstraints() {
         
         avatarView.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(20)
@@ -204,6 +204,7 @@ extension MainViewController {
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }

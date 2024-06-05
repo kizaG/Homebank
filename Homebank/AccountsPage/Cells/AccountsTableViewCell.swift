@@ -13,7 +13,6 @@ struct AccountsElementKind {
     static let sectionFooter = "section-footer-element-kind"
 }
 
-
 final class AccountsTableViewCell: UITableViewCell {
     
     static let identifier = "AccountsTableViewCell"

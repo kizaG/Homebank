@@ -81,7 +81,7 @@ extension AccountsViewController {
     
     // MARK: - Setup Views
     
-    func setupViews() {
+    private func setupViews() {
         
         [tableView].forEach {
             view.addSubview($0)
@@ -96,7 +96,7 @@ extension AccountsViewController {
     
     // MARK: - Setup Constraints
     
-    func setupConstraints() {
+    private func setupConstraints() {
         buttonsView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.trailing.equalToSuperview().offset(-20)

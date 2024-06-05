@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class PosterCollectionViewCell: UICollectionViewCell {
+final class PosterCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "PosterCollectionViewCell"
     
@@ -20,7 +20,7 @@ class PosterCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
-    // MARK: - Lifecycle
+    // MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,11 +35,16 @@ class PosterCollectionViewCell: UICollectionViewCell {
 }
 
 extension PosterCollectionViewCell {
-    func setupViews() {
+    
+    // MARK: - Setup Views
+    
+    private func setupViews() {
         addSubview(infoImageView)
     }
     
-    func setupConstraints() {
+    // MARK: - Setup Constraints
+    
+    private func setupConstraints() {
         infoImageView.snp.makeConstraints { make in
             make.top.bottom.leading.trailing.equalToSuperview()
         }

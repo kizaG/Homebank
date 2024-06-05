@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class RecCollectionViewCell: UICollectionViewCell {
+final class RecCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "RecCollectionViewCell"
     
@@ -20,7 +20,7 @@ class RecCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
-    // MARK: - Lifecycle
+    // MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,9 +35,14 @@ class RecCollectionViewCell: UICollectionViewCell {
 }
 
 extension RecCollectionViewCell {
-    func setupViews() {
+    
+    // MARK: - Setup Views
+    
+    private func setupViews() {
         addSubview(infoImageView)
     }
+    
+    // MARK: - Setup Constraints
     
     func setupConstraints() {
         infoImageView.snp.makeConstraints { make in
