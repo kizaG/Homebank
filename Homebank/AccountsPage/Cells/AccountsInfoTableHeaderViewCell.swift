@@ -1,5 +1,5 @@
 //
-//  AccountsInfoTableHeaderView.swift
+//  AccountsInfoTableHeaderViewCell.swift
 //  Homebank
 //
 //  Created by Gazinho Dos Santos on 30.05.2024.
@@ -8,9 +8,9 @@
 import UIKit
 import SnapKit
 
-final class AccountsInfoTableHeaderView: UITableViewHeaderFooterView {
+final class AccountsInfoTableHeaderViewCell: UITableViewCell {
     
-    static let identifier = "AccountsInfoTableHeaderView"
+    static let identifier = "AccountsInfoTableHeaderViewCell"
     
     // MARK: - UI
     
@@ -27,8 +27,10 @@ final class AccountsInfoTableHeaderView: UITableViewHeaderFooterView {
         return label
     }()
     
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
+    // MARK: - Init
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setupViews()
         setupConstraints()
@@ -39,27 +41,29 @@ final class AccountsInfoTableHeaderView: UITableViewHeaderFooterView {
     }
 }
 
-extension AccountsInfoTableHeaderView {
+extension AccountsInfoTableHeaderViewCell {
     
     private func setupViews() {
         [headerLabel, headerExtraLabel].forEach {
             contentView.addSubview($0)
         }
+        
     }
     
     private func setupConstraints() {
         headerLabel.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-10)
             make.leading.equalToSuperview().offset(20)
         }
         
         headerExtraLabel.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-10)
             make.trailing.equalToSuperview().offset(-20)
         }
     }
     
     func configure(headerTitle: String, headerExtraTitle: String) {
+        contentView.backgroundColor = AppColor.grey01.uiColor
         self.headerLabel.text = headerTitle
         self.headerExtraLabel.text = headerExtraTitle
     }

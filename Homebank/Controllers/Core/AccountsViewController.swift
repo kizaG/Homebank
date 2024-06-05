@@ -22,8 +22,8 @@ final class AccountsViewController: UIViewController {
         tableView.delegate = self
         tableView.register(AccountsTableViewCell.self, forCellReuseIdentifier: AccountsTableViewCell.identifier)
         tableView.register(AccountsInfoTableViewCell.self, forCellReuseIdentifier: AccountsInfoTableViewCell.identifier)
-        tableView.register(AccountsInfoTableHeaderView.self, forHeaderFooterViewReuseIdentifier: AccountsInfoTableHeaderView.identifier)
-        tableView.register(AccountsInfoTableFooterView.self, forHeaderFooterViewReuseIdentifier: AccountsInfoTableFooterView.identifier)
+        tableView.register(AccountsInfoTableHeaderViewCell.self, forCellReuseIdentifier: AccountsInfoTableHeaderViewCell.identifier)
+        tableView.register(AccountsInfoTableFooterViewCell.self, forCellReuseIdentifier: AccountsInfoTableFooterViewCell.identifier)
         return tableView
     }()
     
@@ -123,50 +123,6 @@ extension AccountsViewController {
 
 extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        if section == 2 {
-            guard let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: AccountsInfoTableFooterView.identifier) as? AccountsInfoTableFooterView else {
-                return nil
-            }
-            return footer
-        }
-        
-        return UIView()
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 1 {
-            guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: AccountsInfoTableHeaderView.identifier) as? AccountsInfoTableHeaderView else {
-                return nil
-            }
-            header.configure(headerTitle: "Депозиты и бонусы", headerExtraTitle: "")
-            return header
-        }
-        if section == 2 {
-            guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: AccountsInfoTableHeaderView.identifier) as? AccountsInfoTableHeaderView else {
-                return nil
-            }
-            header.configure(headerTitle: "Кредиты", headerExtraTitle: "Оплата до 20.05")
-            return header
-        }
-        
-        return UIView()
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 1 || section == 2 {
-            return 40
-        }
-        return 0
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if section == 2 {
-            return 60
-        }
-        return 0
-    }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
@@ -174,8 +130,8 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionCounts: [Int: Int] = [
             0: 1,
-            1: 2,
-            2: 4,
+            1: 3,
+            2: 6,
             3: 1
         ]
         return sectionCounts[section] ?? 0
@@ -191,6 +147,13 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.section == 1 {
             if indexPath.row == 0 {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountsInfoTableHeaderViewCell.identifier, for: indexPath) as? AccountsInfoTableHeaderViewCell else {
+                    return UITableViewCell()
+                }
+                cell.configure(headerTitle: "Депозиты и бонусы", headerExtraTitle: "")
+                return cell
+            }
+            if indexPath.row == 1 {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountsInfoTableViewCell.identifier, for: indexPath) as? AccountsInfoTableViewCell else {
                     return UITableViewCell()
                 }
@@ -199,7 +162,7 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
                 )
                 return cell
             }
-            if indexPath.row == 1 {
+            if indexPath.row == 2 {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountsInfoTableViewCell.identifier, for: indexPath) as? AccountsInfoTableViewCell else {
                     return UITableViewCell()
                 }
@@ -216,6 +179,13 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.section == 2 {
             if indexPath.row == 0 {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountsInfoTableHeaderViewCell.identifier, for: indexPath) as? AccountsInfoTableHeaderViewCell else {
+                    return UITableViewCell()
+                }
+                cell.configure(headerTitle: "Кредиты", headerExtraTitle: "Оплата до 20.05")
+                return cell
+            }
+            if indexPath.row == 1 {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountsInfoTableViewCell.identifier, for: indexPath) as? AccountsInfoTableViewCell else {
                     return UITableViewCell()
                 }
@@ -224,7 +194,7 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
                 )
                 return cell
             }
-            else if indexPath.row == 3 {
+            if indexPath.row == 4 {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountsInfoTableViewCell.identifier, for: indexPath) as? AccountsInfoTableViewCell else {
                     return UITableViewCell()
                 }
@@ -233,15 +203,19 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
                 )
                 return cell
             }
-            else {
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountsInfoTableViewCell.identifier, for: indexPath) as? AccountsInfoTableViewCell else {
+            if indexPath.row == 5 {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountsInfoTableFooterViewCell.identifier, for: indexPath) as? AccountsInfoTableFooterViewCell else {
                     return UITableViewCell()
                 }
-                cell.configure(
-                    roundTop: false, roundBottom: false
-                )
                 return cell
             }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountsInfoTableViewCell.identifier, for: indexPath) as? AccountsInfoTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.configure(
+                roundTop: false, roundBottom: false
+            )
+            return cell
         }
         
         return UITableViewCell()
@@ -250,6 +224,24 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return view.frame.height/2
+        }
+        
+        if indexPath.section == 1 {
+            if indexPath.row == 0 {
+                return 60
+            }
+        }
+        
+        if indexPath.section == 2 {
+            if indexPath.row == 0 {
+                return 60
+            }
+        }
+        
+        if indexPath.section == 2 {
+            if indexPath.row == 5 {
+                return 70
+            }
         }
         
         return 80
