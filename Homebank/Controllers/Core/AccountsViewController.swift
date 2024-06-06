@@ -24,6 +24,7 @@ final class AccountsViewController: UIViewController {
         tableView.register(AccountsInfoTableViewCell.self, forCellReuseIdentifier: AccountsInfoTableViewCell.identifier)
         tableView.register(AccountsInfoTableHeaderViewCell.self, forCellReuseIdentifier: AccountsInfoTableHeaderViewCell.identifier)
         tableView.register(AccountsInfoTableFooterViewCell.self, forCellReuseIdentifier: AccountsInfoTableFooterViewCell.identifier)
+        tableView.register(AccountsTableGraphViewCell.self, forCellReuseIdentifier: AccountsTableGraphViewCell.identifier)
         return tableView
     }()
     
@@ -82,7 +83,6 @@ extension AccountsViewController {
     // MARK: - Setup Views
     
     private func setupViews() {
-        
         [tableView].forEach {
             view.addSubview($0)
         }
@@ -124,7 +124,7 @@ extension AccountsViewController {
 extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -218,6 +218,13 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         
+        if indexPath.section == 3 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountsTableGraphViewCell.identifier, for: indexPath) as? AccountsTableGraphViewCell else {
+                return UITableViewCell()
+            }
+            return cell
+        }
+        
         return UITableViewCell()
     }
     
@@ -242,6 +249,10 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
             if indexPath.row == 5 {
                 return 70
             }
+        }
+        
+        if indexPath.section == 3 {
+            return 300
         }
         
         return 80
