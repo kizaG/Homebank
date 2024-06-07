@@ -116,12 +116,19 @@ extension AccountsViewController {
         }
         
         tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-6)
         }
     }
 }
 
 extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+            cell.separatorInset = UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 15)
+            cell.layoutMargins = UIEdgeInsets.zero
+            cell.preservesSuperviewLayoutMargins = false
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 4
@@ -138,6 +145,7 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         if indexPath.section == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: AccountsTableViewCell.identifier, for: indexPath) as? AccountsTableViewCell else {
                 return UITableViewCell()
@@ -247,7 +255,7 @@ extension AccountsViewController: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.section == 2 {
             if indexPath.row == 5 {
-                return 70
+                return 100
             }
         }
         

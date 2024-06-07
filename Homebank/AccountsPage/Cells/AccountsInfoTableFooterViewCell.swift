@@ -59,7 +59,7 @@ extension AccountsInfoTableFooterViewCell {
     private func setupConstraints() {
         payButton.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(10)
-            make.bottom.equalToSuperview().offset(-10)
+            make.bottom.equalToSuperview().offset(-40)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
         }

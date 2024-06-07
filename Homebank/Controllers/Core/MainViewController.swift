@@ -197,7 +197,7 @@ extension MainViewController {
         
         tableView.snp.makeConstraints { make in
             make.top.equalTo(searchBar.snp.bottom).offset(10)
-            make.bottom.equalToSuperview().offset(-90)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-6)
             make.leading.trailing.equalToSuperview()
         }
     }
