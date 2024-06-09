@@ -69,4 +69,6 @@ enum AppImage: String, AppImageProtocol {
     case rec_market
     case rec_ten
     case rec_twelve
+    
+    case menu_verified
 }

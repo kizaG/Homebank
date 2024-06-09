@@ -78,9 +78,6 @@ final class MainViewController: UIViewController {
         return button
     }()
     
-    let searchController = UISearchController()
-    
-    
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.searchBarStyle = .minimal
