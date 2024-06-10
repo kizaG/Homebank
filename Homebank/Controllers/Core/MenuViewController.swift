@@ -74,6 +74,18 @@ final class MenuViewController: UIViewController {
         return searchBar
     }()
     
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.separatorStyle = .none
+        tableView.allowsSelection = false
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(MenuPageTableViewCell.self, forCellReuseIdentifier: MenuPageTableViewCell.identifier)
+        tableView.backgroundView?.backgroundColor = AppColor.grey01.uiColor
+        tableView.backgroundColor = AppColor.grey01.uiColor
+        return tableView
+    }()
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -102,7 +114,7 @@ extension MenuViewController {
     // MARK: - Setup Views
     
     private func setupViews() {
-        [avatarView, searchBar].forEach {
+        [avatarView, searchBar, tableView].forEach {
             view.addSubview($0)
         }
         [buttonsView].forEach {
@@ -123,7 +135,6 @@ extension MenuViewController {
         buttonsView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.trailing.equalToSuperview().offset(-20)
-            
         }
         
         messageButton.snp.makeConstraints { make in
@@ -167,6 +178,29 @@ extension MenuViewController {
             make.leading.equalToSuperview().offset(12)
             make.trailing.equalToSuperview().offset(-12)
         }
+        
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(searchBar.snp.bottom).offset(10)
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-6)
+        }
     }
 }
 
+extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MenuPageTableViewCell.identifier, for: indexPath) as? MenuPageTableViewCell else {
+            return UITableViewCell()
+        }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+}

@@ -37,6 +37,7 @@
 		C258B44E2BF7543700AE0B64 /* AccountsListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C258B44D2BF7543700AE0B64 /* AccountsListSection.swift */; };
 		C28CD7DD2C0F0BA80071023F /* AccountsInfoTableFooterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28CD7DC2C0F0BA80071023F /* AccountsInfoTableFooterViewCell.swift */; };
 		C28CD7DF2C11B2A10071023F /* AccountsTableGraphViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28CD7DE2C11B2A10071023F /* AccountsTableGraphViewCell.swift */; };
+		C28CD7E42C16EA740071023F /* MenuPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28CD7E32C16EA740071023F /* MenuPageTableViewCell.swift */; };
 		C2EA109E2BFB4A150090A357 /* RecCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA109D2BFB4A150090A357 /* RecCollectionViewCell.swift */; };
 		C2EA10A42BFB520B0090A357 /* BackgroundDecorationRecView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA10A32BFB520B0090A357 /* BackgroundDecorationRecView.swift */; };
 		C2EA10A62BFC99960090A357 /* RecHeaderReusableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA10A52BFC99960090A357 /* RecHeaderReusableViewCell.swift */; };
@@ -76,6 +77,7 @@
 		C258B44D2BF7543700AE0B64 /* AccountsListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsListSection.swift; sourceTree = "<group>"; };
 		C28CD7DC2C0F0BA80071023F /* AccountsInfoTableFooterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsInfoTableFooterViewCell.swift; sourceTree = "<group>"; };
 		C28CD7DE2C11B2A10071023F /* AccountsTableGraphViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsTableGraphViewCell.swift; sourceTree = "<group>"; };
+		C28CD7E32C16EA740071023F /* MenuPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPageTableViewCell.swift; sourceTree = "<group>"; };
 		C2EA109D2BFB4A150090A357 /* RecCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecCollectionViewCell.swift; sourceTree = "<group>"; };
 		C2EA10A32BFB520B0090A357 /* BackgroundDecorationRecView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundDecorationRecView.swift; sourceTree = "<group>"; };
 		C2EA10A52BFC99960090A357 /* RecHeaderReusableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecHeaderReusableViewCell.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 		C2198DD62BEDDA700074AE6F /* Homebank */ = {
 			isa = PBXGroup;
 			children = (
+				C28CD7E02C16EA3A0071023F /* MenuPage */,
 				C258B4402BF7510200AE0B64 /* AccountsPage */,
 				C258B4292BF3B47900AE0B64 /* MainPage */,
 				C258B4182BEDFC1F00AE0B64 /* App Resources */,
@@ -257,6 +260,30 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		C28CD7E02C16EA3A0071023F /* MenuPage */ = {
+			isa = PBXGroup;
+			children = (
+				C28CD7E22C16EA5C0071023F /* Cells */,
+				C28CD7E12C16EA570071023F /* Views */,
+			);
+			path = MenuPage;
+			sourceTree = "<group>";
+		};
+		C28CD7E12C16EA570071023F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C28CD7E22C16EA5C0071023F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C28CD7E32C16EA740071023F /* MenuPageTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -360,6 +387,7 @@
 				C204C5EF2C05CA14002A8B03 /* AccountsInfoTableViewCell.swift in Sources */,
 				C258B42D2BF3B4FA00AE0B64 /* MainListSection.swift in Sources */,
 				C204C5F32C0873B8002A8B03 /* AccountsInfoTableHeaderViewCell.swift in Sources */,
+				C28CD7E42C16EA740071023F /* MenuPageTableViewCell.swift in Sources */,
 				C258B4162BEDFAEC00AE0B64 /* AppImage.swift in Sources */,
 				C258B43A2BF3BEEE00AE0B64 /* ExtraButtonCollectionViewCell.swift in Sources */,
 				C258B4362BF3BECB00AE0B64 /* MainButtonCollectionViewCell.swift in Sources */,

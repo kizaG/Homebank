@@ -71,4 +71,5 @@ enum AppImage: String, AppImageProtocol {
     case rec_twelve
     
     case menu_verified
+    case menu_settings
 }
