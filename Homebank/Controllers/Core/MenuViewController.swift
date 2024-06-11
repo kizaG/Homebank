@@ -190,10 +190,17 @@ extension MenuViewController {
 extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 6
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 5 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: MenuPageTableViewCell.identifier, for: indexPath) as? MenuPageTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.configureExit()
+            return cell
+        }
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MenuPageTableViewCell.identifier, for: indexPath) as? MenuPageTableViewCell else {
             return UITableViewCell()
         }

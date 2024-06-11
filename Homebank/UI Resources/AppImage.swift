@@ -72,4 +72,5 @@ enum AppImage: String, AppImageProtocol {
     
     case menu_verified
     case menu_settings
+    case menu_exit
 }

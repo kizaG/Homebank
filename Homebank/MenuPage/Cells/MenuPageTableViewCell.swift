@@ -23,7 +23,7 @@ final class MenuPageTableViewCell: UITableViewCell {
     
     private lazy var iconImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: AppImage.menu_settings.rawValue)
+        imageView.image = AppImage.menu_settings.uiImage
         imageView.contentMode = .center
         imageView.layer.cornerRadius = 8
         imageView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: -10, right: -10)
@@ -99,5 +99,13 @@ extension MenuPageTableViewCell {
             make.bottom.equalTo(iconImageView.snp.bottom).offset(-5)
             make.leading.equalTo(mainLabel.snp.leading)
         }
+    }
+    
+    func configureExit() {
+        self.iconImageView.image = AppImage.menu_exit.uiImage
+        self.infoView.backgroundColor = AppColor.grey01.uiColor
+        self.mainLabel.text = "Выйти"
+        self.mainLabel.textColor = AppColor.red01.uiColor
+        self.extraLabel.textColor = AppColor.red02.uiColor
     }
 }
