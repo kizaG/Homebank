@@ -55,7 +55,7 @@ final class MenuViewController: UIViewController {
     
     private lazy var verifyImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: AppImage.menu_verified.rawValue)
+        imageView.image = AppImage.menu_verified.uiImage
         return imageView
     }()
     

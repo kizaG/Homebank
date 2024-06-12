@@ -22,7 +22,7 @@ final class AccountsInfoTableViewCell: UITableViewCell {
     
     private lazy var iconImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: AppImage.eb_credit.rawValue)
+        imageView.image = AppImage.eb_credit.uiImage
         imageView.backgroundColor = AppColor.green01.uiColor
         imageView.contentMode = .center
         imageView.layer.cornerRadius = 8
