@@ -38,6 +38,7 @@
 		C28CD7DD2C0F0BA80071023F /* AccountsInfoTableFooterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28CD7DC2C0F0BA80071023F /* AccountsInfoTableFooterViewCell.swift */; };
 		C28CD7DF2C11B2A10071023F /* AccountsTableGraphViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28CD7DE2C11B2A10071023F /* AccountsTableGraphViewCell.swift */; };
 		C28CD7E42C16EA740071023F /* MenuPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28CD7E32C16EA740071023F /* MenuPageTableViewCell.swift */; };
+		C2E3998D2C1C399800736C38 /* TransfersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E3998C2C1C399800736C38 /* TransfersViewController.swift */; };
 		C2EA109E2BFB4A150090A357 /* RecCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA109D2BFB4A150090A357 /* RecCollectionViewCell.swift */; };
 		C2EA10A42BFB520B0090A357 /* BackgroundDecorationRecView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA10A32BFB520B0090A357 /* BackgroundDecorationRecView.swift */; };
 		C2EA10A62BFC99960090A357 /* RecHeaderReusableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EA10A52BFC99960090A357 /* RecHeaderReusableViewCell.swift */; };
@@ -78,6 +79,7 @@
 		C28CD7DC2C0F0BA80071023F /* AccountsInfoTableFooterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsInfoTableFooterViewCell.swift; sourceTree = "<group>"; };
 		C28CD7DE2C11B2A10071023F /* AccountsTableGraphViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsTableGraphViewCell.swift; sourceTree = "<group>"; };
 		C28CD7E32C16EA740071023F /* MenuPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPageTableViewCell.swift; sourceTree = "<group>"; };
+		C2E3998C2C1C399800736C38 /* TransfersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransfersViewController.swift; sourceTree = "<group>"; };
 		C2EA109D2BFB4A150090A357 /* RecCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecCollectionViewCell.swift; sourceTree = "<group>"; };
 		C2EA10A32BFB520B0090A357 /* BackgroundDecorationRecView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundDecorationRecView.swift; sourceTree = "<group>"; };
 		C2EA10A52BFC99960090A357 /* RecHeaderReusableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecHeaderReusableViewCell.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 		C2198DD62BEDDA700074AE6F /* Homebank */ = {
 			isa = PBXGroup;
 			children = (
+				C2E3998A2C1C396400736C38 /* TransfersPage */,
 				C28CD7E02C16EA3A0071023F /* MenuPage */,
 				C258B4402BF7510200AE0B64 /* AccountsPage */,
 				C258B4292BF3B47900AE0B64 /* MainPage */,
@@ -190,6 +193,7 @@
 		C258B4282BF2390600AE0B64 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C2E3998B2C1C398400736C38 /* Extra */,
 				C258B4082BEDE03700AE0B64 /* Core */,
 			);
 			path = Controllers;
@@ -284,6 +288,21 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		C2E3998A2C1C396400736C38 /* TransfersPage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TransfersPage;
+			sourceTree = "<group>";
+		};
+		C2E3998B2C1C398400736C38 /* Extra */ = {
+			isa = PBXGroup;
+			children = (
+				C2E3998C2C1C399800736C38 /* TransfersViewController.swift */,
+			);
+			path = Extra;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -373,6 +392,7 @@
 				C2198DD82BEDDA700074AE6F /* AppDelegate.swift in Sources */,
 				C258B4462BF7526D00AE0B64 /* CardCollectionViewCell.swift in Sources */,
 				C28CD7DD2C0F0BA80071023F /* AccountsInfoTableFooterViewCell.swift in Sources */,
+				C2E3998D2C1C399800736C38 /* TransfersViewController.swift in Sources */,
 				C2198DDA2BEDDA700074AE6F /* SceneDelegate.swift in Sources */,
 				C258B40F2BEDF64700AE0B64 /* AccountsViewController.swift in Sources */,
 				C258B40D2BEDEB3B00AE0B64 /* AppColor.swift in Sources */,
