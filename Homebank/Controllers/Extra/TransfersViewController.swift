@@ -13,6 +13,7 @@ final class TransfersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Меню"
         view.backgroundColor = AppColor.grey01.uiColor
     }
 }

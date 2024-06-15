@@ -221,8 +221,8 @@ extension MainPageTableViewCell {
 }
 
 extension MainPageTableViewCell: UICollectionViewDelegate,
-                                  UICollectionViewDataSource,
-                                  UICollectionViewDelegateFlowLayout {
+                                 UICollectionViewDataSource,
+                                 UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         sections.count
@@ -246,9 +246,18 @@ extension MainPageTableViewCell: UICollectionViewDelegate,
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainButtonCollectionViewCell.identifier, for: indexPath) as? MainButtonCollectionViewCell else {
                 return UICollectionViewCell()
             }
+            if indexPath.row == 0 {
+                cell.configureCell(imageName: mainButton[indexPath.row].image,
+                                   title: mainButton[indexPath.row].title,
+                                   extraText: mainButton[indexPath.row].extraText,
+                                   vc: TransfersViewController()
+                )
+                return cell
+            }
             cell.configureCell(imageName: mainButton[indexPath.row].image,
                                title: mainButton[indexPath.row].title,
-                               extraText: mainButton[indexPath.row].extraText)
+                               extraText: mainButton[indexPath.row].extraText,
+            vc: UIViewController())
             return cell
             
         case .posters(let poster):

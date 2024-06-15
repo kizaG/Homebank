@@ -14,6 +14,12 @@ final class MainButtonCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI
     
+    private lazy var button: UIButton = {
+        let button = UIButton()
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     private lazy var buttonView: UIView = {
         let view = UIView()
         view.backgroundColor = AppColor.white.uiColor
@@ -41,6 +47,11 @@ final class MainButtonCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    private lazy var viewController: UIViewController = {
+        let vc = UIViewController()
+        return vc
+    }()
+    
     // MARK: - Init
     
     override init(frame: CGRect) {
@@ -53,6 +64,13 @@ final class MainButtonCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Action
+    
+    @objc private func buttonTapped() {
+        let vc = viewController
+        present(vc, anim)
+    }
 }
 
 extension MainButtonCollectionViewCell {
@@ -60,7 +78,8 @@ extension MainButtonCollectionViewCell {
     // MARK: - Setup Views
     
     private func setupViews() {
-        addSubview(buttonView)
+        addSubview(button)
+        button.addSubview(buttonView)
         [buttonImageView, buttonTitle, buttonExtraText].forEach {
             buttonView.addSubview($0)
         }
@@ -85,9 +104,10 @@ extension MainButtonCollectionViewCell {
         }
     }
     
-    func configureCell(imageName: String, title: String, extraText: String) {
+    func configureCell(imageName: String, title: String, extraText: String, vc: UIViewController) {
         buttonImageView.image = UIImage(named: imageName)
         buttonTitle.text = title
         buttonExtraText.text = extraText
+        button
     }
 }
